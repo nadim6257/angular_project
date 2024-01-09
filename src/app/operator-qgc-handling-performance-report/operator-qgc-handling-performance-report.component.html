@@ -1,0 +1,48 @@
+<!--app-headertop></app-headertop-->
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+    <div class="col-12 mt-4">
+       
+        <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+
+        <h3 align="center">OPERATOR'S QGC HANDLING PERFORMANCE REPORT</h3>
+        <div class="row">
+            <div class="col-4">
+                <h5 align="center">From Date : {{fromDate}}</h5>
+            </div>
+            <div class="col-4">
+                <h5 *ngIf="show" align="center">To Date : {{toDate}}</h5>
+            </div>
+            <div class="col-4">
+                <h5 align="center">Shift : {{shift}}</h5>
+            </div>
+        </div>
+      
+        <table class="table table-bordered table-hover table-sm col-12 mt-4">
+            <thead>
+                <tr>
+                    
+                    <th class="text-center">SlNo</th>
+                    <th class="text-center">Operator</th>
+                    <th class="text-center">Equipment</th>
+                    <th class="text-center">Import Receiving</th>
+                    <th class="text-center">Total Handling Boxes</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let result  of resultList | filter: searchText;let i = index;let c = count">
+                    <td scope="col"  align="center">{{i+1}}</td>
+                    <td scope="col"  align="center">{{result.placed_by}}</td>
+                    <td scope="col"  align="center">{{result.full_name}}</td>
+                    <td scope="col"  align="center">{{result.total_move}}</td>
+                    <td scope="col"  align="center">{{result.totalHandingBox}}</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+</div>

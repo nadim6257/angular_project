@@ -1,0 +1,85 @@
+<section class="content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-12">
+
+              <div class="card">
+                  <div class="card-header">
+                      <h3 class="card-title">URL List</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-9">
+
+                          </div>
+                          <div class="col-3">
+                              <div class="card-header">
+                                  <div class="card-tools">
+                                      <div class="input-group input-group-sm float-right" style="width: 200px;">
+                                          <input type="text" name="table_search" class="form-control float-right" placeholder="Search" (change)="onSearchInput()" [(ngModel)]="filterTerm">
+
+                                          <div class="input-group-append">
+                                              <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="container-fluid table-responsive">
+                          <table class="table table-responsive-sm table-bordered table-condensed table-striped table-hover table-fixed table-sm">
+                              <!--table-head-fixed text-nowrap-->
+                              <thead>
+                                  <tr class="table-primary">
+                                      <th class="text-center">#SN</th>
+                                      <th class="text-center">Module Name</th>
+                                      <th class="text-center">Label Name</th>
+                                      <th class="text-center">Router Link</th>
+                                      <th class="text-center">Edit</th>
+                                      <th class="text-center">Delete</th>
+
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let url of Url | filter: filterTerm
+                                        | paginate : { itemsPerPage: tableSize, currentPage: page, totalItems: count };
+                                        let i = index">
+                                      <td class="text-center">{{ i+1 + (tableSize * (page-1)) }}</td>
+                                      <td class="text-center">{{url.module.moduleName}}</td>
+                                      <td class="text-center">{{url.labelName}}</td>
+                                      <td class="text-center">{{url.routerLink}}</td>
+
+                                      <td class="text-center">
+                                          <a [routerLinkActive]="['active']" [routerLink]="['/url/edit', url.id]">
+                                              <button type="button" class="btn btn-sm btn-success">
+                                                    <i class="fa fa-pencil-alt"></i>
+                                            </button>
+                                          </a>
+                                      </td>
+                                      <td class="text-center">
+
+                                          <button type="button" class="btn btn-sm btn-danger" (click)="deleteUrl(url.id)">
+                                            <i class="fa fa-trash-alt"></i>
+                                        </button>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          <div class="d-flex justify-content-center">
+                              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                              </pagination-controls>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+          </div>
+          <!-- /.col -->
+      </div>
+      <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>
+

@@ -1,0 +1,117 @@
+<div class="row">
+    <div class="col-12">
+        <h4 class="mt-4" align="center"><b></b></h4>
+        <table width="100%" border ='0' cellpadding='0' cellspacing='0'>
+	
+            <tr>
+                <td colspan="7" align="center"> <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+            </tr>
+            <tr>
+                <td colspan="7" align="center"><font size="3"><b>OFFICE OF THE TERMINAL MANAGER</b></font></td>
+            </tr>
+            <tr>
+                <td colspan="7" align="center"><font size="3"><b>MLO WISE FINAL DISCHARGING SUMMARY</b></font></td>					
+            </tr>
+            <tr bgcolor="#ffffff" align="center" height="25px">
+                <td colspan="5" align="center"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-10 offset-1">
+        <table class="table table-bordered table-bordered table-sm ">
+            <thead>
+                <tr>
+                    <th class="text-center"><font size="2">VESSEL : {{vesselName}}</font></th>
+                    <th class="text-center"><font size="2">VOY : {{voyNo}}</font></th>
+                    <th class="text-center"><font size="2">ROTATION : {{impRotation}}</font></th>
+                    <th class="text-center"><font size="2">ARRIVED DATE : {{arrivalDate}}</font></th>
+                    <th class="text-center"><font size="2">BERTH : {{berth}}</font></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-10 offset-1">
+        <table class="table table-bordered table-responsive table-hover table-striped mb-none ">
+            <thead>
+                <tr align="center">
+                        <td colspan="1" align="center"><b>MLO'S</b></td>
+                        <td colspan="11" align="center"><b>LADEN</b></td>
+                        <td colspan="11" align="center"><b>EMPTY</b></td>
+                        <td colspan="1" align="center"><b>TOTAL CONTS</b></td>
+                        <td colspan="1" align="center"><b>TOTAL TEUS</b></td>
+                        <td colspan="1" align="center"><b>WEIGHT</b></td>  
+                    
+                </tr>
+            </thead>
+            <tbody>
+               <tr  height="40px" align="center">
+                <td><b></b></td>
+                <td><b>2D</b></td>
+                <td><b>2RF</b></td>
+                <td><b>2OT</b></td>
+                <td><b>2FR</b></td>
+                <td><b>2TK</b></td>
+                <td><b>4D</b></td>
+                <td><b>4H</b></td>
+                <td><b>4RH</b></td>
+                <td><b>45H</b></td>		
+                <td><b>4FR</b></td>
+                <td><b>4OT</b></td>
+                
+                <td><b>2D</b></td>
+                <td><b>2RF</b></td>
+                <td><b>2OT</b></td>
+                <td><b>2FR</b></td>
+                <td><b>2TK</b></td>
+                <td><b>4D</b></td>
+                <td><b>4H</b></td>
+                <td><b>4RH</b></td>
+                <td><b>45H</b></td>		
+        
+                
+                <td><b>4FR</b></td>
+                <td><b>4OT</b></td>			
+
+               </tr>
+                
+                <tr *ngFor="let result of resultList" height="40px" align="center">
+                    <td class="text-center"><font size="2">{{result.mlo}}</font></td>
+                    <td class="text-center"><font size="2">{{result.d_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.r_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.ot_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.fr_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.tk_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.d_40}}</font></td>		
+                    <td class="text-center"><font size="2">{{result.h_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.rh_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.h_45}}</font></td>
+                    <td class="text-center"><font size="2">{{result.fr_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.ot_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.md_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mr_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mot_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mfr_20}}</font></td>
+                
+                    <td class="text-center"><font size="2">{{result.mtk_20}}</font></td>
+                    <td class="text-center"><font size="2">{{result.md_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mh_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mrh_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mh_45}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mfr_40}}</font></td>
+                    <td class="text-center"><font size="2">{{result.mot_40}}</font></td>		
+                    <td class="text-center"><font size="2">{{result.grand_tot}}</font></td>
+                    
+                    <td class="text-center"><font size="2">{{result.tues}}</font></td>
+                    
+                    <td class="text-center"><font size="2">{{result.weight}}</font></td>
+                   
+
+                </tr>
+            </tbody>
+           
+        </table>
+    </div>
+</div>

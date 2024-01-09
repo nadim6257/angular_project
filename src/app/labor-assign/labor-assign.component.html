@@ -1,0 +1,178 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">Add Labor to Gang</p>
+                                <form [formGroup]="laborAssignForm" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-md 6" style="border-right: 1px solid black;">
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mt-3 mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary">
+                                                                Gang Name
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="gang_id" [(ngModel)]="gangId" [items]="gangs" bindLabel="name" bindValue="id" [multiple]="false" [searchable]="true" [closeOnSelect]="true" placeholder="" (change)="onGangChange($event.id)" tabindex="1">
+                                                        </ng-select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary">
+                                                                Labor Type
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="labor_category_id" [(ngModel)]="laborCategoryId" [items]="laborCategories" bindLabel="name" bindValue="id" [multiple]="false" [searchable]="true" [closeOnSelect]="true" placeholder="" (change)="onLaborCategoryChange($event.id)"
+                                                            tabindex="2">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary">
+                                                                Designation
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="designation_category_id" [(ngModel)]="designationCategoryId" [items]="designationCategories" bindLabel="name" bindValue="id" [multiple]="false" [searchable]="true" [closeOnSelect]="true" placeholder=""
+                                                            (change)="onDesignationCategoryChange($event.id)" tabindex="3">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary">
+                                                                Labor Name
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="labor_id" [(ngModel)]="laborId">
+                                                            <ng-option *ngFor="let availableLabor of availableLabors" [value]="availableLabor.id">
+                                                                {{availableLabor.name}} ( {{availableLabor.entry_pass_no}} )
+                                                            </ng-option>
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md 6">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h5 align="center"><b>Existing Gang Members</b></h5>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-responsive table-hover table-bordered table-condensed table-fixed tableFixHead">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center" width="12%"></th>
+                                                                    <th class="text-center" width="8%">#Sl</th>
+                                                                    <th class="text-center" width="40%">Labor Name</th>
+                                                                    <th class="text-center" width="40%">Entry Pass No
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr *ngIf="this.gangMemberExists == 0">
+                                                                    <td class="text-center" colspan="4">
+                                                                        <font color="purple">Select gang for current labors</font>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr *ngIf="this.gangMemberExists == 1">
+                                                                    <td class="text-center" colspan="4">
+                                                                        <font color="red"> Gang has no labor </font>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr *ngFor="let existingLabor of existingLabors;let i = index">
+                                                                    <td class="text-center" width="10%">
+                                                                        <button class="btn btn-danger btn-sm" type="button" (click)="onRemove(existingLabor.labor_id)">
+                                                                            <i class="fa fa-trash-alt"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="text-center" width="10%"><span>{{i+1}}.
+                                                                        </span></td>
+                                                                    <td class="text-center" width="40%">
+                                                                        {{existingLabor.labor_name}}</td>
+                                                                    <td class="text-center" width="40%">
+                                                                        {{existingLabor.entry_pass_no}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                                <!-- <div class="col-md-12">
+                                                    <h5 class="text-info">Existing Gang Members</h5>
+                                                    <p *ngIf="this.gangMemberExists == 0" class="text-small">Select gang for current labors</p>
+                                                    <p *ngIf="this.gangMemberExists == 1" class="text-small">Gang has no labor</p>
+                                                    <div *ngFor="let existingLabor of existingLabors; let i = index">
+
+                                                        <p><button class="btn btn-danger" style="width:30px" (click)="onRemove(existingLabor.labor_id)">-</button><span>{{i+1}}. </span>{{existingLabor.labor_name}} - {{existingLabor.entry_pass_no}}</p>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-8 offset-md-2 text-center">
+                                            <button [disabled]="this.gangId === '' || this.laborCategoryId === '' || this.designationCategoryId === '' || laborId === ''" type="submit" class="btn btn-primary">
+                                                Assign
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

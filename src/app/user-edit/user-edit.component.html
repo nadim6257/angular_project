@@ -1,0 +1,172 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                      
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">Edit User</p>
+                                <div class="row">
+                                    <div class="col-md 6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">User ID</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="loginId" name="loginId"
+                                                        id="loginId" class="form-control" autocomplete="off"
+                                                        tabindex="1" style="border: 1px solid #2f76e4;" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Password</button>
+                                                    </div>
+                                                    <input type="password" [(ngModel)]="password" name="password"
+                                                        id="password" class="form-control" autocomplete="off"
+                                                        tabindex="1" style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Name</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="uName" name="uName" id="uName"
+                                                        class="form-control" autocomplete="off" tabindex="3"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Email</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="email" name="email" id="email"
+                                                      class="form-control" autocomplete="off" tabindex="4"
+                                                     style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Role</button>
+                                                    </div>
+                                                    <ng-select class="custom form-control"
+                                                        [(ngModel)]="userRole"
+                                                        [items]="roles" bindLabel="roleName" bindValue="id"
+                                                        [multiple]="false" [searchable]="true" [closeOnSelect]="true"
+                                                        placeholder="" tabindex="6">
+                                                    </ng-select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md 6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Organization</button>
+                                                    </div>
+                                                    <ng-select class="custom form-control"
+                                                        [(ngModel)]="organization"
+                                                        [items]="orgList" bindLabel="organizationName" bindValue="id"
+                                                        [multiple]="false" [searchable]="true" [closeOnSelect]="true"
+                                                        placeholder="" tabindex="6">
+                                                    </ng-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">
+                                                            Mobile
+                                                        </button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="mobileNo" name="mobileNo"
+                                                        id="mobileNo" class="form-control" autocomplete="off"
+                                                        tabindex="7" style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Telephone</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="telephone" name="telephone" id="telephone"
+                                                        class="form-control" autocomplete="off" tabindex="8"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Address</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="address" name="address" id="address"
+                                                        class="form-control" autocomplete="off" tabindex="9"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-8 offset-md-2 text-center">
+                                        <button (click)="updateUser()" type="submit" class="btn btn-primary">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

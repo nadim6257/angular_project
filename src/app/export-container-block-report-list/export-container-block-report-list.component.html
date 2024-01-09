@@ -1,0 +1,70 @@
+<div class="row">
+    <div style="margin-left: 550px;margin-top: 30px;">
+
+        <img width="250px" height="80px" src="../../assets/img/cpanew.jpg" class="cpa-logo">
+
+
+    </div>
+
+    <h3 style="margin-left:500px;">Export Container Block Report</h3>
+    <div class="row">
+        <div style="margin-left:80px;">
+            {{vsl_Name}}
+         </div>
+        <div style="margin-left:80px;">
+            Voy:{{voYNo}}
+        </div>
+        <div  style="margin-left:500px;">
+
+            Rotation No:{{ rotation_no}}
+        </div>
+        <div style="margin-left:80px;">
+        {{aTa}}
+        </div>
+        
+    </div>
+
+
+    <div  style="margin-top:20px; margin-left:20px;margin-right:20px ;">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>ContainerNo</th>
+                    <th>Type</th>
+                    <th>MLO</th>
+                    <th>Status</th>
+                    <th>Weight</th>
+                
+                    <th>POD</th>
+                    <th>Stowage</th>
+                    <th>ComingFrom</th>
+                    <th>Commodity</th>
+                    <th>Remarks</th>
+                    <th>User Id</th>
+           
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let container_block_report of containerBlockReport;let i=index;">
+                    <td>{{i+1}}</td>
+                    <td>{{container_block_report.contNo}}</td>
+                    <td>{{container_block_report.iso}}</td>
+                    <td>{{container_block_report.mlo}}</td>
+                    <td>{{container_block_report.contStatus}}</td>
+                    <td>{{container_block_report.weight}}</td>
+                    <td>{{container_block_report.pod}}</td>
+                    <td>{{container_block_report.stowage_pos}}</td>
+                    <td>{{container_block_report.coming_from}}</td>
+                    <td>{{container_block_report.commodity}}</td>
+                    <td>{{container_block_report.remarks}}</td>
+                    <td>{{container_block_report.user_id}}</td>
+               
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+
+</div>

@@ -1,0 +1,262 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Labor Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-sm-12 ">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>                                
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">CONTAINER DISCHARGE LIST APPS</p>                     
+                                <form class="form-horizontal form-bordered" [formGroup]="contanerDischargeAppForm" (ngSubmit)="onSubmit($any($event.target))">     
+                                    <div class="row">
+                                        <div class="col-sm-11  offset-md-1">
+                                            <div class="input-group mb-md col-lg-11 mt-1">
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">Import Rotation</button>
+                                                </div>
+                                                <input  type="text" name="rotation" placeholder="Rotation"
+                                                class="form-control">
+                                                  
+                                                
+                                            </div> 
+                                            <div class="input-group mb-md col-lg-11 mt-3">
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">Search By</button>
+                                                </div>
+                                               
+                                                    <select  name="searchBy" class="form-control"
+                                                    (change)="onSearchByChange($any($event.target).value)">
+                                                        <!--option disabled selected value=0>Select</option-->
+                                                        <option value="all" selected>Search By</option>
+                                                        <option value="yard">Yard</option>
+                                                        <option value="dateRange">DateRange</option>
+                                                        <option value="dateTime">DateTime</option>
+                                                       
+                                                    </select>
+                                                
+                                            </div> 
+                                            <div class="input-group mb-md col-lg-11 mt-3">
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">Search Yard</button>
+                                                </div>
+                                               
+                                                <select [disabled]="isEditableYard" name="searchYard" class="form-control"
+                                                (change)="onYardValueChange($any($event.target).value)">
+                                                    <option   disabled selected value=0 >Select</option>
+                                                     <option *ngFor="let val of searchValues" ng-model="myVar"
+                                                        value={{val.current_position}}>
+                                                        {{val.current_position}}
+                                                    </option>
+                                                </select>
+                                                
+                                            </div> 
+                                            <div class="input-group mb-md col-lg-11 mt-3 ">
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">From Date</button>
+                                                </div>
+                                                <input  [readonly]="isEditableFormDate" type="date" name="fromDate"
+                                                class="form-control">
+                                                <div class="input-group-prepend ">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">From(24 Hrs)</button>
+                                                </div> 
+                                                <input [readonly]="isEditableFromTime" type="text" name="fromTime" placeholder="(HH:MM)(24 hrs)"
+                                                 class="form-control">
+                                              
+                                            </div>
+                                            <div class="input-group mb-md col-lg-11 mt-3 ">
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">To Date</button>
+                                                </div>
+                                                <input [readonly]="isEditableToDate" type="date" name="toDate"
+                                                class="form-control">
+                                                
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">To(24 Hrs)</button>
+                                                </div>
+                                                <input [readonly]="isEditableToTime" type="text" name="toTime" placeholder="(HH:MM)(24 hrs)"
+                                                 class="form-control">
+                                              
+                                            </div>
+
+                                            <!-- <div class="col-md-8 col-md-offset-3  text-center mt-3">
+                                                <label class="col-4 radio-inline">
+                                                     <input type="radio" name="fileType" value="xl"/> Excel 
+                                                </label>
+                    
+                                                <label class="col-4 radio-inline">
+                                                  <input type="radio" name="fileType" value="html" checked /> Html
+                                                </label>
+                                            </div> -->
+                                           
+                                            
+                                                          
+                                        </div>
+                                    </div>
+                                    <div class="container mt-3">
+                                        <div class="row">
+                                            <div class="col-4 text-center">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="fileType" value="xl"/> Excel 
+                                               </label>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <!-- <label class="radio-inline">
+                                                    <input type="radio" name="fileType" value="html" checked /> PDF
+                                                </label> -->
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="fileType" value="html" checked /> Html
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-8 offset-md-2 text-center">
+                                            <button  [disabled]="this.contanerDischargeAppForm.invalid"  class="btn btn-primary">Show</button>
+                                        </div>
+                                    </div>
+                                </form>                                
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-sm-12"  >
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>                                
+                            </div> -->
+                            <div class="card-body"> 
+                                <div class="row">
+                                    <div class="col-9">
+                                       
+                                    </div>
+                                    <div class="col-3">                                        
+                                        <div class="card-header">
+                                            <div class="card-tools">
+                                                <div class="input-group input-group-sm float-right" style="width: 200px;">
+                                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search"
+                                                        (keyup)="onSearchInput()" [(ngModel)]="filterTerm" >
+                                
+                                                    <div class="input-group-append">
+                                                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                
+                                <div class="table-responsive">
+                                    <table class="table   table-bordered table-condensed table-striped table-hover table-fixed  table-sm mb-none" >  <!--table-head-fixed text-nowrap-->
+                                        <thead> <!--class="thead-dark"-->
+                                            <tr class="table-primary"> <!--class="table-primary"-->
+                                                <th class="text-center" ><font size="2">Sl</font></th>
+                                                <th class="text-center"><font size="2">Container</font></th>
+                                                <th class="text-center"><font size="2">Rotation </font></th>
+                                                <th class="text-center"><font size="2">MLO</font></th>	
+                                                <th class="text-center"><font size="2">ISO</font></th>	
+                                                <th class="text-center"><font size="2">Status</font></th>
+                                                <th class="text-center" colspan="2"><font size="2">Disch Time</font></th>
+                                                <th class="text-center"><font size="2">Yard Po</font></th>
+                                                <th class="text-center" colspan="2"><font size="2">Destination</font></th>
+                                                <th class="text-center"><font size="2">User Id</font></th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr
+                                                *ngFor="
+                                                    let result of resultList  
+                                                    | filter: filterTerm 
+                                                    | paginate
+                                                        : {
+                                                            itemsPerPage: tableSize,
+                                                            currentPage: page,
+                                                            totalItems: count
+                                                        };
+                                                    let i = index                                     
+                                                "
+                                                >
+                                                <!--th scope="row" class="text-center">{{ i+1 + (tableSize * (page-1)) }}</th-->
+                                                <td class="text-center"> <font size="2"> {{i+1}}</font></td>
+                                                <td class="text-center" ><font size="2">{{result.id}}</font></td>
+                                                <td class="text-center"><font size="2">{{result.rotation}}</font></td>
+                                                <td class="text-center"><font size="2">{{result.mlo}}</font></td>
+                                                <td class="text-center"><font size="2">{{result.iso}}</font></td>
+                                                <td class="text-center"><font size="2">{{result.freight_kind}}</font></td>
+                                                <td class="text-center" colspan="2"><font size="2">{{result.last_update}}</font></td>
+                                                <td class="text-center"><font size="2">{{result.current_position}}</font></td>
+                                                <td class="text-center" colspan="2"><font size="2">{{result.destination}}</font></td>
+                                                <td class="text-center"><font size="2">{{result.user_id}}</font></td>
+                                               
+                                               
+                                               
+                                            </tr>
+                                        </tbody>                                        
+                                    </table>
+                                    <div class="d-flex justify-content-center">
+                                        <pagination-controls
+                                          previousLabel="Prev"
+                                          nextLabel="Next"
+                                          (pageChange)="onTableDataChange($event)"
+                                        >
+                                        </pagination-controls>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+             </div>
+        </section>
+        
+    </div>
+
+  
+   
+
+
+
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

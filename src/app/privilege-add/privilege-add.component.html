@@ -1,0 +1,131 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                          <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                          <li class="breadcrumb-item active">Add</li>
+                      </ol> -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                              <h3 class="card-title">Add New Labor Category</h3>
+                          </div> -->
+                            <div class="card-body">
+
+
+                                <div class="row">
+                                    <div class="col-md-6" style="border-right: 1px solid black;">
+                                        <h1 class="h4 mb-4" align="center" style="font-weight: 40px">Assign Privilege</h1>
+                                        <hr class="border-primary" style="width: 200px;border-top: 2px dashed ;">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-12">
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary fw-bold" style="width: 120px;font-weight: bold;">
+                                                            Role
+                                                          </button>
+                                                    </div>
+
+                                                    <ng-select class="custom form-control" [(ngModel)]="user_role_id" [items]="roleTypes" bindValue="id" bindLabel="roleName" [multiple]="false" [searchable]="true" [closeOnSelect]="true" placeholder="" (change)="onRoleChange($event.id)" tabindex="8">
+                                                    </ng-select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-12">
+                                                <div class="input-group mt-3 mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary" style="width: 120px;font-weight: bold;">
+                                                          Module
+                                                        </button>
+                                                    </div>
+                                                    <ng-select class="custom form-control" [(ngModel)]="user_module_id" [items]="moduleTypes" bindValue="id" bindLabel="moduleName" [multiple]="false" [searchable]="true" [closeOnSelect]="true" placeholder="" tabindex="8" (change)="onModuleChange($event.id)">
+                                                    </ng-select>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-8 offset-md-2 text-center">
+                                                <button [disabled]="this.user_role_id==0" class="btn btn-primary" style="font-weight: bold;" (click)="onSubmit()">Assign</button>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="col-md-6 mt-5">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-responsive table-hover table-bordered   table-condensed table-fixed tableFixHead ml-5" style="width: 60%">
+                                                        <thead>
+                                                            <th class="text-center  fw-bold" scope="col" width="20%">
+                                                                Select
+                                                            </th>
+                                                            <th class="text-center " scope="col" width="40%">
+                                                                Role Name
+                                                            </th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let url of urls">
+
+
+                                                                <td class="text-center" width="20%">
+
+                                                                    <input class="form-check-input mt-0 position-static" type="checkbox" value aria-label="Checkbox for following text input" (click)="selectedUrl($event,url.id)" [checked]="url.status==1" />
+                                                                </td>
+                                                                <td class="text-center" width="200px">
+                                                                    {{url.label_name}}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

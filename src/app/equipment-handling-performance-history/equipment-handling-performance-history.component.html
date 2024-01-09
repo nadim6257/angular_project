@@ -1,0 +1,43 @@
+<!--app-headertop></app-headertop-->
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+    <div class="col-12 mt-5">
+        <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+        <h3 align="center">EQUIPMENT HANDLING PERFORMANCE HISTORY</h3>
+        <h3 align="center">Shift : {{shift}}</h3>
+        <!--div class="row justify-content-end">
+            <div class="col-2 p-2">
+                <input class="form-control me-2" [(ngModel)]="searchText" type="search" placeholder="Search"
+                    aria-label="Search">
+            </div>
+        </div-->
+        <table class="table table-bordered table-hover mt-4" id="equipmentListTable">
+            <thead>
+                <tr>
+                    
+                    <th class="text-center"  align="center">SlNo</th>
+                    <th class="text-center">VMT Logln/LogOut Time</th>
+                    <th class="text-center">Log Type</th>
+                    <th class="text-center">User Name</th>
+                    <th class="text-center">Operator Name</th>
+                    <th class="text-center">Program</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let result  of resultList | filter: searchText;let i = index;let c = count">
+                    <td scope="col" align="center">{{i+1}}</td>
+                    <td scope="col" align="center">{{result.logDate}}</td>
+                    <td scope="col" align="center">{{result.logType}}</td>
+                    <td scope="col" align="center">{{result.logBy}}</td>
+                    <td scope="col" align="center">{{result.logEquip}}</td>
+                    <td scope="col" align="center">{{result.program}}</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

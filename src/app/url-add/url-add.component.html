@@ -1,0 +1,178 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                    <li class="breadcrumb-item active">Add</li>
+                </ol> -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                      <h3 class="card-title">Add New Labor Category</h3>
+                  </div> -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md 8" style="border-right: 1px solid black">
+                                        <form [formGroup]="urlAddForm" (ngSubmit)="onSubmit()">
+                                            <h1 class="h4 mb-4 text-center">Add New URL</h1>
+                                            <!-- <hr class="border-primary" style="width: 200px;border-top: 2px dashed ;"> -->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Module
+                              </button>
+                                                        </div>
+                                                        <!-- <ng-select class="custom form-control" formControlName="user_module_id" [(ngModel)]="user_module_id" bindLabel="user_module_id" bindValue="id" [multiple]="false" [searchable]="true" [closeOnSelect]="true" (change)="onModuleTypeChange($any($event.target).value)">
+                                                            <option *ngFor="let module of modules" value={{module.id}}>
+                                                                {{module.moduleName}}
+                                                            </option>
+                                                        </ng-select> -->
+                                                        <!-- <ng-select class="custom form-control" formControlName="user_module_id" [(ngModel)]="user_module_id" bindLabel="user_module_id" bindValue="id" [multiple]="false" [searchable]="true" [closeOnSelect]="true" (change)="
+                                onModuleTypeChange($any($event.target).value)
+                              "> -->
+                                                        <ng-select class="custom form-control" formControlName="user_module_id" [(ngModel)]="user_module_id" bindLabel="user_module_id" bindValue="id" [multiple]="false" [searchable]="true" [closeOnSelect]="true" (change)="onModuleTypeChange($event.id)">
+                                                            <!-- <option disabled selected value=0>Select Module</option> -->
+                                                            <ng-option *ngFor="let module of modules" value="{{ module.id }}">
+                                                                {{ module.moduleName }}
+                                                            </ng-option>
+                                                        </ng-select>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Label
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="label_name" [(ngModel)]="label_name" name="label_name" id="label_name" class="form-control" autocomplete="off" required />
+                                                    </div>
+                                                    <div class="input-group mb-3 justify-content-center">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Action Name
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="action_name" [(ngModel)]="action_name" name="action_name" id="action_name" class="form-control" autocomplete="off" required />
+                                                    </div>
+                                                    <div class="input-group mb-3 justify-content-center">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                No.Of Param
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="no_of_param" pattern="[0-4]{1}" maxlength="1" title="Numbers Only" [(ngModel)]="no_of_param" name="no_of_param" #box class="form-control" autocomplete="off" value="0" min="1" max="4" (input)="onChangeParamInput(box.value)"
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Param1
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="params_one" [(ngModel)]="params_one" name="params_one" id="params_one" class="form-control" autocomplete="off" />
+                                                    </div>
+                                                    <div class="input-group mb-3 justify-content-center">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Param2
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="params_two" [(ngModel)]="params_two" name="params_two" id="params_two" class="form-control" autocomplete="off" />
+                                                    </div>
+                                                    <div class="input-group mb-3 justify-content-center">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Param3
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="params_three" [(ngModel)]="params_three" name="params_three" id="params_three" class="form-control" autocomplete="off" />
+                                                    </div>
+                                                    <div class="input-group mb-3 justify-content-center">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary" style="width: 115px;">
+                                Param4
+                              </button>
+                                                        </div>
+                                                        <input type="text" formControlName="params_four" [(ngModel)]="params_four" name="params_four" id="params_four" class="form-control" autocomplete="off" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-10 offset-md-1 text-center">
+                                                    <button type="submit" [disabled]="urlAddForm.invalid" class="btn btn-primary btn-lg">
+                              save
+                          </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-md-4 mt-5">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-responsive table-hover table-bordered table-condensed table-fixed tableFixHead ml-5" style="width: 60%">
+                                                        <thead>
+                                                            <th class="text-center" scope="col" width="20%">
+                                                                Select
+                                                            </th>
+                                                            <th class="text-center" scope="col" width="40%">
+                                                                Role Name
+                                                            </th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let role of roles">
+                                                                <!-- <td><input type="checkbox" class="form-check-input" (click)="checkboxClick(role.id)"></td>
+                                                          <td> <label class="form-check-label">{{role.roleName}}</label></td> -->
+
+                                                                <td class="text-center" width="20%">
+                                                                    <input class="form-check-input mt-0 position-static" type="checkbox" value aria-label="Checkbox for following text input" (change)="checkboxClick($event,role.id)" />
+                                                                </td>
+                                                                <td class="text-center" width="40%">
+                                                                    {{ role.roleName }}
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

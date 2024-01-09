@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-12 mt-4">
+        <table class=" table-hover" align="center">
+            <tr>
+                <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+
+            </tr>
+            <tr>
+                
+                    <td   width="60%" style="padding-left:38%;" align="right" off width="20%"></td>
+                    <td *ngIf="serialNumberShow"  class="offset-1" width="40%"  style="border: 1px solid black;">Serial No :</td>
+                
+            </tr>
+            <tr>
+                <h3 align="center">{{header}}</h3>
+            </tr>
+            <tr>
+                <td   width="60%" style="padding-left:38%;"  align="right"></td>
+                <td  width="40%" colspan="2" style="border: 0.1px solid black;">Date :</td>
+            </tr>
+        </table>  
+      </div>
+    </div>
+</div>   
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 ">
+            <div class="table-responsive">
+                <table border="1" class="mt-4" align="center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">SL</th>
+                            <th class="text-center">Assignment Type</th>
+                            <th class="text-center">C&F Name</th>
+                            <th class="text-center">Cell No</th>
+                            <th class="text-center">Container No.</th>
+                            <th class="text-center">Size</th>
+                            <th class="text-center">Height</th>
+                            <th class="text-center">Seal No.</th>
+                            <th class="text-center">MLO</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Vessel Name</th>
+                            <th class="text-center">Rotation</th>
+                            <th class="text-center">From Block</th>
+                            <th class="text-center">From Yard</th>
+                            <th class="text-center">Trailer No.</th>
+                            <th class="text-center">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let result  of resultList | filter: searchText;let i = index;let c = count">
+                            <td class="text-center">{{i+1}}</td>
+                            <td class="text-center">{{result.mfdch_value}}</td>
+                            <td class="text-center">{{result.cf}}</td>
+                            <td class="text-center">{{result.sms_number}}</td>
+                            <td class="text-center">{{result.cont_no}}</td>
+                            <td class="text-center">{{result.size}}</td>
+                            <td class="text-center">{{result.height}}</td>
+                            <td class="text-center">{{result.seal_nbr1}}</td>
+                            <td class="text-center">{{result.mlo}}</td>
+                            <td class="text-center">{{result.cont_status}}</td>
+                            <td class="text-center">{{result.v_name}}</td>
+                            <td class="text-center">{{result.rot_no}}</td>
+                            <td class="text-center">{{result.slot}}</td>
+                            <td class="text-center">{{result.yard_No}}</td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>    
+                </table>
+            </div>            
+        </div>
+    </div>
+</div>
+<div *ngIf="showFooter" class="row">
+    <div class="col-12 mt-4">
+        <table border="0" width="100%">
+            <tr>
+                <td colspan="7">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="7">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width:20%" align="center"><u>Sender</u> : <br>CCT/NCT</td>
+                <td style="width:2%">&nbsp;</td>
+                <td style="width:20%;border-bottom: 2px dotted black;">&nbsp;</td>
+                <td style="width:9%">&nbsp;</td>
+                <td style="width:20%;border-bottom: 2px dotted black;">&nbsp;</td>
+                <td style="width:9%">&nbsp;</td>
+                <td style="width:20%;border-bottom: 2px dotted black;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="7">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width:20%" align="center"><u>Receiver</u> : <br>Overflow</td>
+                <td style="width:2%">&nbsp;</td>
+                <td style="width:20%;border-bottom: 2px dotted black;">&nbsp;</td>
+                <td style="width:9%">&nbsp;</td>
+                <td style="width:20%;border-bottom: 2px dotted black;">&nbsp;</td>
+                <td style="width:9%">&nbsp;</td>
+                <td style="width:20%;border-bottom: 2px dotted black;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="7">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="7">&nbsp;</td>
+            </tr>				
+        </table>
+        <!--span *ngIf="length>0 && resultList.length==length && show==true && fileType=='pdf'">{{print()}}></span-->
+    </div>
+</div>
+<span *ngIf="length>0 && resultList.length==length && show==true && fileType=='pdf'">{{print()}}></span>

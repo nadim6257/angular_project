@@ -1,0 +1,112 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="mt-4" align="center"><b>OFFDOCK WISE BLOCKED CONTAINER LIST</b></h4>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-bordered table-sm mt-4">
+                <thead>
+                    <tr>
+                        <th class="text-center">#SlNo</th>
+                        <!--th class="col-1 text-center">Container No</th-->
+                        <th class="text-center">Container No</th>
+                        <th class="text-center">Vessel Name</th>
+                        <th class="text-center">Rotation</th>
+                        <th class="text-center">Size</th>
+                        <th class="text-center">Height</th>
+                        <th class="text-center" align="center">MLO</th>
+
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Position</th>
+                        <th class="text-center">IN Date</th>
+                        <th class="text-center">Out Date</th>
+                        <th class="text-center">Total Days</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let result of offDockWiseBockedCotainerList">
+                    <span>{{setOffDock(result.offdoc_name)}}</span>
+                    <tr *ngIf="totalShowStatus">
+                        <td class="text-center">
+                            <font size="2"><b>Total Container:</b></font>
+                        </td>
+                        <td class="text-center">
+                            <font size="2"><b>{{total}}</b></font>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="orgNameShowStatus">
+                        <td colspan="12">
+                            <font size="3"><b>{{result.offdoc_name}}</b>
+                            </font>
+                        </td>
+                    </tr>
+
+                    
+                    <tr>
+                        <td align="center">
+                            <font size="2">{{j}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.cont_id}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.vsl_name}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.rotation}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.size}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.heightInString}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.mlo_name}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.freight_kind}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.last_pos_name}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.time_in}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.time_out}}</font>
+                        </td>
+                        <td align="center">
+                            <font size="2">{{result.totalDays}}</font>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="text-center">
+                            <font size="2"><b>Total Container :</b></font>
+                        </td>
+                        <td colspan="text-center" align="center">
+                            <font size="2"><b>{{j}}</b></font>
+                        </td>
+                        <td colspan="10">{{setInitialValueForOrgWiseList()}}</td>
+
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <font size="2"><b>Grand Total :</b></font>
+                        </td>
+                        <td class="text-center">
+                            <font size="2"><b>{{i}}</b></font>
+                        </td>
+                        <td colspan="10"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,300 @@
+<div class="row">
+    <div class="col-12">
+        <h4 class="mt-4" align="center"><b>DESTINATION/OFFDOCK WISE CONTAINER LIST</b></h4>
+    </div>
+    <div class="col-10 offset-1">
+        <table class="table table-bordered table-bordered table-sm mt-4">
+            <thead>
+                <tr>
+                    <th class="text-center">Vessel Name:</th>
+                    <th class="text-center">{{vessleName}}</th>
+                    <th class="text-center">Vessel Name:</th>
+                    <th class="text-center">{{rotation}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 offset-1">
+        <table class="table table-bordered table-bordered table-sm mt-4">
+            <thead>
+                <tr>
+                    <th class="text-center">#Sl</th>
+                    <th class="text-center">Container</th>
+                    <th class="text-center">MLO</th>
+                    <th class="text-center">Size</th>
+                    <th class="text-center">Height</th>
+                    <th class="text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let orgResult of orgWiseResultList">
+                <span>{{setOffDock(orgResult.off_dock_id)}}</span>
+                <tr *ngIf="totalShowStatus">
+                    <td class="text-center">
+                        <font size="3"><b>Total Container:</b></font>
+                    </td>
+                    <td class="text-center"><font size="3"><b>{{total}}</b></font>
+                    </td>
+                </tr>
+
+                <tr *ngIf="orgNameShowStatus">
+                    <td colspan="6"><font size="3"><b>{{orgResult.organization_Name}}</b>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">{{j}}</td>
+                    <td align="center">{{orgResult.id}}</td>
+                    <td  align="center">{{orgResult.mlocode}}</td>
+                    <td align="center">{{orgResult.cont_size}}</td>
+                    <td align="center">{{orgResult.cont_height}}</td>
+                    <td align="center">{{orgResult.cont_status}}</td>
+
+                </tr>
+            </tbody>
+            <tr>
+                <td class="text-center">
+                    <font size="3"><b>Total Container :</b></font>
+                </td>
+                <td colspan="text-center" align="center"><font size="3"><b>{{j}}</b></font>
+                </td>
+                <span>{{setInitialValueForOrgWiseList()}}</span>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h4 class="mt-4" align="center"><b>DISTRICT WISE CHITTAGONG PORT CONTAINER LIST FOR {{rotation}}</b></h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 offset-1">
+        <table *ngIf="start" class="table table-bordered table-bordered table-sm mt-4">
+            <thead>
+                <tr>
+                    <th class="text-center">#Sl</th>
+                    <th class="text-center">Container</th>
+                    <th class="text-center">MLO</th>
+                    <th class="text-center">Size</th>
+                    <th class="text-center">Height</th>
+                    <th class="text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let districtResult of districtWiseResultList">
+                <span>{{setDistrict(districtResult.dist)}}</span>
+                <tr *ngIf="totalContainerDistrictWiseShowStatus">
+                    <td class="col-1">
+                        <font size="3"><b>Total Container:</b></font>
+                    </td>
+                    <td class="text-center">
+                        <font size="3"><b>{{countEachDistrictWise}}</b></font>
+                    </td>
+                </tr>
+
+                <tr *ngIf="districtNameShowStatus">
+                    <td colspan="6"><font size="3"><b>{{districtResult.dist}}</b>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td  align="center">{{k}}</td>
+                    <td  align="center">{{districtResult.id}}</td>
+                    <td  align="center">{{districtResult.mlocode}}</td>
+                    <td  align="center">{{districtResult.cont_size}}</td>
+                    <td  align="center">{{districtResult.cont_height}}</td>
+                    <td  align="center">{{districtResult.cont_status}}</td>
+                </tr>                
+            </tbody>            
+            <tfoot>
+                <tr>
+                    <td><b>Total Container :</b></td>
+                    <td class="text-center"><b>{{k}}</b></td>                    
+                    <td colspan="4">{{setInitialValueForDistrictWiseList()}}</td>
+                    
+                </tr>
+                <tr>
+                    <td><b>Grand Total :</b></td>
+                    <td class="text-center"><b>{{i}}</b></td>
+                    <td colspan="4"></td>
+                </tr>
+            </tfoot>
+            <!-- <tr>
+                <td class="text-center">
+                    <font size="3"><b>&nbsp;&nbsp;Total Container :</b></font>
+                </td>
+                <td class="text-center" align="center">
+                    <font size="3"><b>{{k}}</b></font>
+                </td>
+                               
+                <span>{{setInitialValueForDistrictWiseList()}}</span>
+               
+            </tr>
+            <tr>
+                <td class="text-center"><font size="3"><b>Grand Total :</b></font></td>
+                <td class="text-center" align="center" ><font size="3"><b>{{i}}</b></font></td>
+                  
+            </tr> -->
+        </table>
+    </div>
+</div>
+
+
+
+
+<!----------------------------------------------------------------------------------------------------------------------------------->
+
+
+<!--div class="row">
+    <div class="col-3">
+       
+    </div>
+    <div class="col-12 mt-4">
+
+        <h3 align="center">DESTINATION/OFFDOCK WISE CONTAINER LIST</h3>
+        <div class="row col-12 mt-4">
+           
+            <table class="table table-bordered table-hover col-12 mt-4" width="100%">
+                <tr bgcolor="#ffffff" align="center" height="25px">
+                    <td><b>Vessel Name:</b></td>
+                    <td><b>{{vessleName}} </b></td>
+                    <td><b> For: </b></td>
+                    <td><b>{{rotation}}</b></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+       
+        <table class="table table-bordered table-hover col-12 mt-4" id="equipmentListTable" width="100%">
+            <thead>
+                <tr>
+
+                    <th class="col-2 text-center">SlNo</th>
+                    <th class="col-2 text-center">Container</th>
+                    <th class="col-2 text-center">MLO</th>
+                    <th class="col-2 text-center">Size</th>
+                    <th class="col-2 text-center">Height</th>
+                    <th class="col-2 text-center">Status</th>
+                  
+                </tr>
+            </thead>
+            <tbody *ngFor="let orgResult of orgWiseResultList">
+
+
+               
+                <span>{{setOffDock(orgResult.off_dock_id)}}</span>
+
+                <tr *ngIf="totalShowStatus">
+                    <td class="col-6">
+                        <font size="3"><b>&nbsp;&nbsp;Total Container:</b></font>
+                    </td>
+                    <td class="col-6 text-center">&nbsp;&nbsp;<font size="3"><b>{{total}}</b></font>
+                    </td>
+                </tr>
+                <tr *ngIf="orgNameShowStatus">
+                    <td class="col-11" colspan="15">&nbsp;&nbsp;<font size="3"><b>{{orgResult.organization_Name}}</b>
+                        </font>
+                    </td>
+                  
+
+                </tr>
+
+                <tr>
+                    <td scope="col" align="center">{{j}}</td>
+                    <td scope="col" align="center">{{orgResult.id}}</td>
+                    <td scope="col" align="center">{{orgResult.mlocode}}</td>
+                    <td scope="col" align="center">{{orgResult.cont_size}}</td>
+                    <td scope="col" align="center">{{orgResult.cont_height}}</td>
+                    <td scope="col" align="center">{{orgResult.cont_status}}</td>
+
+                </tr>
+            </tbody>
+            <tr>
+                <td class="col-6 ">
+                    <font size="3"><b>&nbsp;&nbsp;Total Container :</b></font>
+                </td>
+                <td colspan="col-6" align="center">&nbsp;&nbsp;<font size="3"><b>{{j}}</b></font>
+                </td>
+                <span>{{setInitialValueForOrgWiseList()}}</span>
+            </tr>
+        </table>
+    </div>
+
+</div-->
+
+<!--div *ngIf="start" class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-12 mt-4">
+
+        <h3 align="center">DISTRICT WISE CHITTAGONG PORT CONTAINER LIST FOR {{rotation}}</h3>
+        <table class="table table-bordered table-hover col-12 mt-4" id="equipmentListTable" width="100%">
+            <thead>
+                <tr>
+
+                    <th class="col-2 text-center">SlNo</th>
+                    <th class="col-2 text-center">Container</th>
+                    <th class="col-2 text-center">MLO</th>
+                    <th class="col-2 text-center">Size</th>
+                    <th class="col-2 text-center">Height</th>
+                    <th class="col-2 text-center">Status</th>
+
+                </tr>
+            </thead>
+            <tbody *ngFor="let districtResult of districtWiseResultList">
+
+                <span>{{setDistrict(districtResult.dist)}}</span>
+
+                <tr *ngIf="totalContainerDistrictWiseShowStatus">
+                    <td class="col-6 ">
+                        <font size="3"><b>&nbsp;&nbsp;Total Container:</b></font>
+                    </td>
+                    <td class="col-6 text-center">&nbsp;&nbsp;<font size="3"><b>{{countEachDistrictWise}}</b></font>
+                    </td>
+                </tr>
+                <tr *ngIf="districtNameShowStatus">
+                    <td class="col-11" colspan="15">&nbsp;&nbsp;<font size="3"><b>{{districtResult.dist}}</b></font>
+                    </td>
+
+
+                </tr>
+
+                <tr>
+                    <td scope="col" align="center">{{k}}</td>
+                    <td scope="col" align="center">{{districtResult.id}}</td>
+                    <td scope="col" align="center">{{districtResult.mlocode}}</td>
+                    <td scope="col" align="center">{{districtResult.cont_size}}</td>
+                    <td scope="col" align="center">{{districtResult.cont_height}}</td>
+                    <td scope="col" align="center">{{districtResult.cont_status}}</td>
+
+                </tr>
+            </tbody>
+            <tr>
+                <td colspan="1">
+                    <font size="3"><b>&nbsp;&nbsp;Total Container :</b></font>
+                </td>
+                <td colspan="1" align="center">&nbsp;&nbsp;<font size="3"><b>{{k}}</b></font>
+                </td>
+                <td colspan="4"></td>
+                <span>{{setInitialValueForDistrictWiseList()}}</span>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <font size="3"><b>&nbsp;&nbsp;Grand Total :</b></font>
+                </td>
+                <td colspan="1" align="center">&nbsp;&nbsp;<font size="3"><b>{{i}}</b></font>
+                </td>
+                <td colspan="4"></td>
+
+            </tr>
+        </table>
+    </div>
+
+</div-->

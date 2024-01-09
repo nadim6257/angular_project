@@ -1,0 +1,232 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>                                
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">Edit Labor Info</p>
+                                <div class="row">
+                                    <div class="col-md 6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Entry Pass
+                                                            No</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="entry_pass_no"
+                                                        name="entry_pass_no" id="entry_pass_no" class="form-control" autocomplete="off"
+                                                        tabindex="1" style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Name</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="name" name="name" id="name"
+                                                        class="form-control" autocomplete="off" tabindex="2"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">NID</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="nid" name="nid" id="nid"
+                                                        class="form-control" autocomplete="off" tabindex="3"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Permanent
+                                                            Address</button>
+                                                    </div>
+                                                    <textarea [(ngModel)]="permanent_address" name="permanent_address"
+                                                        id="permanent_address" class="form-control" rows="2"
+                                                        autocomplete="off" tabindex="4"
+                                                        style="border: 1px solid #2f76e4;" required>
+
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Berth
+                                                            Operator</button>
+                                                    </div>
+                                                    <ng-select class="custom form-control"
+                                                        [(ngModel)]="berth_operator_id" [items]="berthOperators"
+                                                        bindLabel="name" bindValue="id" [multiple]="false"
+                                                        [searchable]="true" [closeOnSelect]="true" placeholder=""
+                                                        (change)="onBerthOperatorChange($event.id)" tabindex="5">
+                                                    </ng-select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Labor
+                                                            Category</button>
+                                                    </div>
+                                                    <ng-select class="custom form-control" [(ngModel)]="labor_type_id"
+                                                        [items]="laborCategories" bindLabel="name" bindValue="id"
+                                                        [multiple]="false" [searchable]="true" [closeOnSelect]="true"
+                                                        placeholder="" (change)="onLaborCategoryChange($event.id)"
+                                                        tabindex="6">
+                                                    </ng-select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md 6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">
+                                                            Date of Birth
+                                                        </button>
+                                                    </div>
+                                                    <input type="date" [(ngModel)]="date_of_birth" name="date_of_birth"
+                                                        id="date_of_birth" class="form-control" autocomplete="off"
+                                                        tabindex="7" style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Expiration Date</button>
+                                                    </div>
+                                                    <input type="date" [(ngModel)]="expiration_date" name="expiration_date" id="expiration_date"
+                                                        class="form-control" autocomplete="off" tabindex="8"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Phone</button>
+                                                    </div>
+                                                    <input type="text" [(ngModel)]="phone" name="phone" id="phone"
+                                                        class="form-control" autocomplete="off" tabindex="9"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">
+                                                            Present Address
+                                                        </button>
+                                                    </div>
+                                                    <textarea [(ngModel)]="present_address" name="present_address"
+                                                        id="present_address" class="form-control" rows="2"
+                                                        autocomplete="off" tabindex="10"
+                                                        style="border: 1px solid #2f76e4;" required>
+
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">Date of Joining</button>
+                                                    </div>
+                                                    <input type="date" [(ngModel)]="date_of_joining" name="date_of_joining" id="date_of_joining"
+                                                        class="form-control" autocomplete="off" tabindex="11"
+                                                        style="border: 1px solid #2f76e4;" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <button type="button" class="btn btn-primary">
+                                                            Designation Category
+                                                        </button>
+                                                    </div>
+                                                    <ng-select class="custom form-control"
+                                                        [(ngModel)]="designation_category_id"
+                                                        [items]="designationCategories" bindLabel="name" bindValue="id"
+                                                        [multiple]="false" [searchable]="true" [closeOnSelect]="true"
+                                                        placeholder="" (change)="onDesignationCategoryChange($event.id)"
+                                                        tabindex="6">
+                                                    </ng-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-8 offset-md-2 text-center">
+                                        <button [disabled]="this.nid === ''" (click)="onSubmit()" type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

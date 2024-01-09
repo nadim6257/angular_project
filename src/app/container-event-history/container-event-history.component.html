@@ -1,0 +1,170 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Labor Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-10 offset-md-1">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>                                
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">CONTAINER EVENTS HISTORY</p>                     
+                                <!--form [formGroup]="laborCategoryAddForm" (ngSubmit)="onSubmit()"-->
+                                    <!-- <div class="row">
+                                        <div class="col-md-6 offset-md-2">
+                                            <h4 align="center"><b>Add New Labor Category</b></h4>
+                                        </div>                                        
+                                    </div>   -->
+                                    <div class="row">
+                                        <div class="col-md-6 offset-md-3">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <!-- <span class="input-group-text">Labor Category</span> -->
+                                                    <button type="button" class="btn btn-primary">Container No</button>
+                                                </div>
+                                                <input type="text" name="contNo" [(ngModel)]="contNumber" class="form-control" autocomplete="off" required >
+                                            </div>                                        
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8 offset-md-2 text-center">
+                                            <button (click)="getContainerEventHistoryList(contNumber)"  class="btn btn-primary">Search</button>
+                                        </div>
+                                    </div>
+                                <!--/form-->                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="show" class="row" >
+                    <div class="col-md-12">                        
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" class="text-center">Event History of Container No:{{contNumber}}</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-9">
+                                       
+                                    </div>
+                                    <div class="col-3">                                        
+                                        <div class="card-header">
+                                            <div class="card-tools">
+                                                <div class="input-group input-group-sm float-right" style="width: 200px;">
+                                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search"
+                                                        (keyup)="onSearchInput()" [(ngModel)]="filterTerm" >
+                                
+                                                    <div class="input-group-append">
+                                                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-responsive table-bordered table-condensed table-striped table-hover table-fixed">  <!--table-head-fixed text-nowrap-->
+                                        <thead> <!--class="thead-dark"-->
+                                            <tr class="table-primary"> <!--class="table-primary"-->
+                                                <th class="text-center">#Sl</th>
+                                                <th  class="text-center">Time Move</th>
+                                                <th  class="text-center">Time In</th>
+                                                <th  class="text-center">Time Out</th>
+                                                <th  class="text-center">Category</th>
+                                                <th  class="text-center">Status</th>
+                                               
+                                                <th  class="text-center">MLO</th>
+                                                <th  class="text-center">Transit State</th>
+                                                <th  class="text-center">Last Pos Name</th>
+                                                <th  class="text-center">Expand</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr
+                                                *ngFor="
+                                                    let containerEventHistory of containerEventHistoryList  
+                                                    | filter: filterTerm 
+                                                    | paginate
+                                                        : {
+                                                            itemsPerPage: tableSize,
+                                                            currentPage: page,
+                                                            totalItems: count
+                                                        };
+                                                    let i = index                                     
+                                                "
+                                                >
+                                                <th scope="row" class="text-center">{{ i+1 + (tableSize * (page-1)) }}</th>
+                                                <td>{{containerEventHistory.time_move}}</td>
+                                                <td>{{containerEventHistory.time_in}}</td>
+                                                <td>{{containerEventHistory.time_out}}</td>
+                                                <td>{{containerEventHistory.category}}</td>
+                                                <td>{{containerEventHistory.freight_kind}}</td>
+                                                <td>{{containerEventHistory.mlo}}</td>
+                                                <td>{{containerEventHistory.transit_state}}</td>
+                                                <td>{{containerEventHistory.last_pos_name}}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-success">Expand</button>
+                                                </td>
+                                               
+                                            </tr>
+                                        </tbody>                                        
+                                    </table>
+                                    <div class="d-flex justify-content-center">
+                                        <pagination-controls
+                                          previousLabel="Prev"
+                                          nextLabel="Next"
+                                          (pageChange)="onTableDataChange($event)"
+                                        >
+                                        </pagination-controls>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+               
+
+
+                
+             </div>
+        </section>
+        
+    </div>
+
+  
+   
+
+
+
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

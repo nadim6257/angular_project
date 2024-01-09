@@ -1,0 +1,125 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-12 mt-4">
+        <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+        <h3 *ngIf="titleOffDock" align="center"> FEEDER SUMMARY LIST OFFDOCK WISE</h3>
+        <h3 *ngIf="title" align="center"> FEEDER SUMMARY LIST </h3>
+        <div class="row">
+            <div class="col-4">
+                <h5 align="center">Vessel Name :{{vesselName}} </h5>
+            </div>
+            <div class="col-4">
+              
+            </div>
+            <div class="col-4">
+                <h5 align="center">Rotation :  {{impRotation}}</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>   
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 ">
+            <table class="table table-bordered table-responsive table-hover table-striped mb-none">
+                <tr>							
+                    <th align="center" style="font-size: small;"><span class="style1" >Shipping Agent Name</span></th>
+                    <th align="center"  style="font-size: small;" ><span class="style1" >Agent Name</span></th>
+                    <th align="center"  style="font-size: small;"><span class="style1" >Agent CODE</span></th>						
+                    <th align="center"  style="font-size: small;"><span class="style1" >MLO CODE</span></th>
+                    <th colspan='3' align="center"  style="font-size: small;"><span class="style1" >LADEN</span></th>
+                    <th colspan='3' align="center"  style="font-size: small;"><span class="style1" >EMPTY</span></th>					
+                    <th colspan='3' align="center"  style="font-size: small;"><span class="style1" >REFFER</span></th>
+                    <th colspan='3' align="center"  style="font-size: small;"><span class="style1" >IMDG</span></th>						
+                    <th colspan='3' align="center"  style="font-size: small;"><span class="style1" >TRANS</span></th>	
+                    <th colspan='2' align="center"  style="font-size: small;"><span class="style1" >45'</span></th>						
+                    <th colspan='3' align="center"  style="font-size: small;"><span class="style1" >TOTAL</span></th>						
+                    <th colspan='' align="center"  style="font-size: small;"><span class="style1" >TOTAL</span></th>						
+                  				
+                </tr>
+                <tr>
+                    <td  align="center"  style="font-size: small;"></td>
+                    <td  align="center"  style="font-size: small;"></td>
+                     <td  align="center"  style="font-size: small;"></td>
+                     <td  align="center"  style="font-size: small;"></td>
+                    <td  align="center"  style="font-size: small;">20 </td>
+                    <td  align="center"  style="font-size: small;">40</td>
+                    <td  align="center"  style="font-size: small;">TEUs</td>
+                    <td  align="center"  style="font-size: small;"> 20 </td>
+                    <td  align="center"  style="font-size: small;"> 40</td>
+                    <td  align="center"  style="font-size: small;">TEUs</td>
+                    <td  align="center"  style="font-size: small;">20</td>
+                    <td  align="center"  style="font-size: small;">40</td>
+                    <td  align="center"  style="font-size: small;">TEUs</td>
+                    <td  align="center"  style="font-size: small;">20</td>
+                    <td  align="center"  style="font-size: small;">40</td>
+                    <td  align="center"  style="font-size: small;">TEUs</td>
+                    <td  align="center"  style="font-size: small;">20</td>
+                    <td  align="center"  style="font-size: small;">40</td>
+                    <td  align="center"  style="font-size: small;">TEUs</td>
+                    <td  align="center" style="font-size: small;">LD</td>
+                    <td  align="center"  style="font-size: small;">MT</td>
+                    <td  align="center"  style="font-size: small;">20</td>
+                    <td  align="center"  style="font-size: small;">40</td>
+                    <td  align="center"  style="font-size: small;">TEUs</td>								
+                </tr>
+                <tr  *ngFor="let  result  of resultList | filter: searchText;let i = index;let c = count">
+                    <td  align="left" style="font-size: small;">{{result.organization_Name}}</td>
+                    <td  align="left" style="font-size: small;">{{result.mlodescription}}</td>
+                    <td  align="left" style="font-size: small;">{{result.mlo_agent_code_ctms}}</td>
+                    <td  align="left" style="font-size: small;">{{result.mlocode}}</td>
+                    <td  align="left" style="font-size: small;">{{result.totalRes}}</td>
+                    <td  align="left" style="font-size: small;">{{result.totalRes1}}</td>
+                    <td  align="left" style="font-size: small;">{{result.rowLadenTeus}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1Mty20}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1Mty40}}</td>
+                    <td  align="left" style="font-size: small;">{{result.rowEmptyTeus}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1Ref20}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1Ref40}}</td>
+                    <td  align="left" style="font-size: small;">{{result.rowRefferTeus}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1Dmg20}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1Dmg40}}</td>
+                    <td  align="left" style="font-size: small;">{{result.rowImdgTeus}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1tran20}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row1tran40}}</td>
+                    <td  align="left" style="font-size: small;">{{result.rowTransTeus1}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row145Id}}</td>
+                    <td  align="left" style="font-size: small;">{{result.row145Mty}}</td>
+                    <td  align="left" style="font-size: small;">{{result.grant20}}</td>
+                    <td  align="left" style="font-size: small;">{{result.grant40}}</td>
+                    <td  align="left" style="font-size: small;">{{result.rowTues}}</td>
+                    <td  align="left" style="font-size: small;">{{result.grant}}</td>
+                </tr>
+                <tr>
+                    
+                    <td  align="center" style="font-size: small;"><b>Grand Total</b></td>
+                    <td  align="left" style="font-size: small;"></td>
+                    <td  align="left" style="font-size: small;"></td>
+                    <td  align="left" style="font-size: small;"></td>
+                    <td  align="left" style="font-size: small;"><b>{{laden20Total}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{laden40Total}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{ladenTues}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{mty20}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{mty40}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{emptyTeus}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{ref20}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{ref40}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{refTeus}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{dmg20}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{dmg40}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{dmgTeus}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{tran20}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{tran40}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{tranTeus}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{ld45}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{mty45}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{grant20}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{grant40}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{grantTues}}</b></td>
+                    <td  align="left" style="font-size: small;"><b>{{grant}}</b></td>
+                   
+                </tr>
+            </table>    
+    </div>
+</div>

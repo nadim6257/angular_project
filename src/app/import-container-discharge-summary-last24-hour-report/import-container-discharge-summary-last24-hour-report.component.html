@@ -1,0 +1,347 @@
+<div class="row">
+
+        <table  border=0 width="100%" align="center">
+            <tr align="center">
+                
+                <td colspan="13" align="center"><img width="250px" height="80px" src="../../assets/img/cpanew.jpg"></td>
+            </tr>
+        
+            <tr align="center">
+                <td colspan="12"><font size="4"><b>24 HRS.WORK DONE REPORT CLOSSING AT 0800 HRS.OF {{assignDate}}</b></font></td>
+            </tr>
+            <tr align="center">
+                <td colspan="12"><font size="4"><b></b></font></td>
+            </tr>
+        </table>
+        <table border=0 width="40%" align="center">
+            <tr>
+                <td><font size="4"><b>DATE</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{assignDate}}</b></font></td>
+            </tr>
+            <tr>
+                <td><font size="4"><b>VESSEL NAME</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.vsl_name}}</b></font></td>
+            </tr>
+            <tr>
+                <td><font size="4"><b>VOYAGE NO</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{voyNo}}</b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b>IMP.ROT</b></font></td>					
+                <td> - </td>
+                <td><font size="4"><b>{{importRotation}}</b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b> EXP.ROT</b></font></td>				
+                <td> - </td>
+                <td><font size="4"><b> {{vesselInfoRow.rotation}}</b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b>BERTH NO</b></font></td>					
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.berth}}</b></font></td>
+                
+            </tr>
+            <tr>
+                <td><font size="4"><b>BERTH OPERATOR</b></font>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.berth_op}}</b></font></td>
+            </tr>
+            <tr>
+                <td><font size="4"><b>SHIPPING AGENT</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.local_agent}}</b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b>ARRIVED ON</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.ata}}</b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b>EXPECTED TIME OF ARRIVED</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.published_eta}}</b></font></td>					
+            </tr>
+            <tr></tr>
+            <tr></tr>
+        </table>
+   
+</div>
+
+<div class="row">
+    <table width="100%" border ='0' cellpadding='0' cellspacing='0'  align="center">
+        <tr><td colspan="12" align="center"><font size="4"><b><u>IMPORT</u></b></font></td></tr>
+        
+        </table>
+</div>
+<div class="row">
+    <table width="100%" border ='1' cellpadding='0' cellspacing='0'>
+        <tr>
+            <td colspan="6" align="center">DISCHARGED</td>
+            <td colspan="6" align="center">TOTAL DISCHARGED</td>
+            <td colspan="6" align="center">BALANCE ON BOARD</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">LADEN</td>
+            <td colspan="2" align="center">EMPTY</td>
+            <td colspan="2" align="center">TUES</td>
+            <td colspan="2" align="center">LADEN</td>
+            <td colspan="2" align="center">EMPTY</td>
+            <td colspan="2" align="center">TUES</td>
+            <td colspan="2" align="center">LADEN</td>
+            <td colspan="2" align="center">EMPTY</td>
+            <td colspan="2" align="center">TUES</td>
+            
+        </tr>
+        <tr>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">LD</td>
+            <td align="center">MT</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">LD</td>
+            <td align="center">MT</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">LD</td>
+            <td align="center">MT</td>
+        </tr>
+        <tr>
+            
+        
+            <td align="center"><a>{{summary3Row.discharge_done_LD_20}}</a></td>
+            <td align="center"><a>{{summary3Row.discharge_done_LD_40}}</a></td>
+            <td align="center"><a>{{summary3Row.discharge_done_MT_20}}</a></td>
+            <td align="center"><a>{{summary3Row.discharge_done_MT_40}}</a></td>
+            <td align="center"><a>{{summary3Row.dischage_LD_tues}}</a></td>
+            <td align="center"><a>{{summary3Row.discharge_MT_tues}}</a></td>
+           
+            
+            <td align="center"><a>{{summary2Row.balance_LD_20}}</a></td>
+            <td align="center"><a>{{summary2Row.balance_LD_40}}</a></td>
+            <td align="center"><a>{{summary2Row.balance_MT_20}}</a></td>
+            <td align="center"><a>{{summary2Row.balance_MT_40}}</a></td>
+            <td align="center"><a>{{summary2Row.balance_LD_tues}}</a></td>
+            <td align="center"><a>{{summary2Row.balance_MT_tues}}</a></td>
+            
+            <td align="center"><a>{{summaryRow.onboard_LD_20}}</a></td>
+            <td align="center"><a>{{summaryRow.onboard_LD_40}}</a></td>
+            <td align="center"><a>{{summaryRow.onboard_MT_20}}</a></td>
+            <td align="center"><a>{{summaryRow.onboard_MT_40}}</a></td>
+            <td align="center"><a>{{summaryRow.onboard_LD_tues}}</a></td>
+            <td align="center"><a>{{summaryRow.onboard_MT_tues}}</a></td>
+    
+            
+        </tr>
+    </table>
+    </div>
+    <div class="row">
+        <table width="100%" border ='0' cellpadding='0' cellspacing='0'  align="center">
+            <tr><td colspan="12" align="center"><font size="4"><b><u>EXPORT</u></b></font></td></tr>
+            
+            </table>
+    </div>
+    <div class="row">
+    <table width="100%" border ='1' cellpadding='0' cellspacing='0'>
+        <tr>
+            <td colspan="6" align="center">SHIPMENT</td>
+            <td colspan="6" align="center">TOTAL ON BOARD</td>
+            <td colspan="6" align="center">BALANCE TO SHIPMENT</td>
+            
+        </tr>
+        <tr>
+            <td colspan="2" align="center">LADEN</td>
+            <td colspan="2" align="center">EMPTY</td>
+            <td colspan="2" align="center">TUES</td>
+            <td colspan="2" align="center">LADEN</td>
+            <td colspan="2" align="center">EMPTY</td>
+            <td colspan="2" align="center">TUES</td>
+            <td colspan="2" align="center">LADEN</td>
+            <td colspan="2" align="center">EMPTY</td>
+            <td colspan="2" align="center">TUES</td>
+            
+        </tr>
+        <tr>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">LD</td>
+            <td align="center">MT</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">LD</td>
+            <td align="center">MT</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">20</td>
+            <td align="center">40</td>
+            <td align="center">LD</td>
+            <td align="center">MT</td>
+        </tr>
+        <tr>
+            
+        
+            <td align="center"><a>{{summary4Row.discharge_done_LD_20}}</a></td>
+            <td align="center"><a>{{summary4Row.discharge_done_LD_40}}</a></td>
+            <td align="center"><a>{{summary4Row.discharge_done_MT_20}}</a></td>
+            <td align="center"><a>{{summary4Row.discharge_done_MT_40}}</a></td>
+            <td align="center"><a>{{summary4Row.dischage_LD_tues}}</a></td>
+            <td align="center"><a>{{summary4Row.discharge_MT_tues}}</a></td>
+           
+            
+            <td align="center"><a>{{summary5Row.balance_LD_20}}</a></td>
+            <td align="center"><a>{{summary5Row.balance_LD_40}}</a></td>
+            <td align="center"><a>{{summary5Row.balance_MT_20}}</a></td>
+            <td align="center"><a>{{summary5Row.balance_MT_40}}</a></td>
+            <td align="center"><a>{{summary5Row.balance_LD_tues}}</a></td>
+            <td align="center"><a>{{summary5Row.balance_MT_tues}}</a></td>
+            
+            <td align="center"><a>{{summary6Row.onboard_LD_20}}</a></td>
+            <td align="center"><a>{{summary6Row.onboard_LD_40}}</a></td>
+            <td align="center"><a>{{summary6Row.onboard_MT_20}}</a></td>
+            <td align="center"><a>{{summary6Row.onboard_MT_40}}</a></td>
+            <td align="center"><a>{{summary6Row.onboard_LD_tues}}</a></td>
+            <td align="center"><a>{{summary6Row.onboard_MT_tues}}</a></td>
+    
+            
+        </tr>
+    </table>
+</div>
+<div class="row">
+    <table width="100%" border ='0' cellpadding='0' cellspacing='0' align="center">
+        <tr><td colspan="12" align="center"><font size="4"><b><u></u></b></font></td></tr>
+        <tr><td colspan="12" align="center"><font size="4"><b></b></font></td></tr>
+        </table>
+        <table width="100%" border ='0' cellpadding='0' cellspacing='0'>
+        <tr><td colspan="12" align="center"><font size="4"><b><u>PROGRAM</u></b></font></td></tr>
+        
+        </table>
+        <table width="100%" border ='1' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td colspan="6" align="center">IMPORT-01</td>
+                <td colspan="6" align="center">EXPORT-01</td>
+            </tr>
+        </table>
+</div>
+<div class="row">
+        <!--table border=0 width="50%" align="center">
+				
+				
+            <tr align="center">
+                <td colspan="12"><font size="4"></font></td>
+            
+            <tr align="center">
+                <td colspan="12"><font size="4"><b></b></font></td>
+            </tr>
+            
+            <tr align="center">
+                <td colspan="12"><font size="4"></font></td>
+            
+            <tr align="center">
+                <td colspan="12"><font size="4"><b></b></font></td>
+            </tr>
+            <tr  align="center">
+            <td align="center"><font size="4"><b>BERTHED - </b></font>
+            <font size="4"><b>{{vesselInfoRow.ata}}</b></font>
+            </td>
+            </tr>
+            <tr>
+            <td  align="center"><font size="4"><b> COMMENCE DISCHARGE -</b></font>
+            <font size="4"><b>{{ vesselInfoRow.discharge_start_time }} HRS {{ vesselInfoRow.discharge_start }}</b></font>
+            </td>
+            </tr>
+            
+            <tr>
+            <td align="center">
+            <font size="4"><b>COMPLETED DISCHARGE -</b></font>
+            <font size="4"><b> {{vesselInfoRow.discharge_completed_time }} HRS  {{vesselInfoRow.discharge_completed}}</b></font>
+            </td>
+            </tr>
+            <tr>
+            <td align="center">
+            <font size="4"><b>COMMENCE LOAD -</b></font>
+            
+            </td>
+            </tr>
+            <tr>
+            <td align="center">
+            <font size="4"><b>COMPLETED LOAD -</b></font>
+            
+            </td>
+            </tr>
+            <tr>
+            <td align="left">
+            <font size="4"><b>SAILED -</b></font>
+            <font size="4"><b>{{vesselInfoRow.atd}}</b></font>
+            </td>
+            </tr>
+            <tr align="center">
+                <td colspan="12"><font size="4"></font></td>
+            </tr>
+            <tr align="center">
+                <td colspan="12"><font size="4"><b></b></font></td>
+            </tr>
+            
+            <tr align="center">
+                <td colspan="12"><font size="4"></font></td>
+            </tr>
+            <tr align="right">
+                <td colspan="12"><font size="4"><b>Prepared by -</b></font></td>
+            </tr>
+            
+        </table-->
+
+        <table border=0 width="40%" align="center">
+            <tr>
+                <td><font size="4"><b>BERTHED</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.ata}}</b></font></td>
+            </tr>
+            <tr>
+                <td><font size="4"><b>COMMENCE DISCHARGE</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.discharge_start_time}}</b></font></td>
+            </tr>
+            <tr>
+                <td><font size="4"><b>COMPLETED DISCHARGE</b></font></td>
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.discharge_completed_time}}</b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b>COMMENCE LOAD</b></font></td>					
+                <td> - </td>
+                <td><font size="4"><b></b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b> COMPLETED LOAD</b></font></td>				
+                <td> - </td>
+                <td><font size="4"><b></b></font></td>					
+            </tr>
+            <tr>
+                <td><font size="4"><b>SAILED</b></font></td>					
+                <td> - </td>
+                <td><font size="4"><b>{{vesselInfoRow.atd}}</b></font></td>
+                
+            </tr>
+           
+                <tr align="right">
+					<td colspan="12"><font size="4"><b>Prepared by -</b></font></td>
+				</tr>
+        </table>
+
+</div>
+
+

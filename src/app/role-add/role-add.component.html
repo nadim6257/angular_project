@@ -1,0 +1,114 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Labor Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-10 offset-md-1">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add Role</h3>
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">Add Role</p>
+                                
+                                <!-- <div class="row">
+                                    <div class="col-md-6 offset-md-2">
+                                        <h4 align="center"><b>Add New Labor Category</b></h4>
+                                    </div>
+                                </div>   -->
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button type="button" class="btn btn-primary">Role Name : </button>
+                                            </div>
+                                            <input type="text" [(ngModel)]="role_name" name="role_name"  class="form-control" autocomplete="off" required >
+                                        </div> 
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('YARD')" id="role_type" name="role_type" /> Yard
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('SHED')" id="role_type" name="role_type"> Shed
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('GATE')" id="role_type" name="role_type"> Gate
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('FF')" id="role_type" name="role_type"> FF
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('CNF')" id="role_type" name="role_type"> C&F
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('MLO')" id="role_type" name="role_type"> MLO
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('OFFDOCK')" id="role_type" name="role_type"> Offdock
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 col-md-offset-3 text-left">
+                                            <label class="col-4 radio-inline">
+                                                <input type="radio" (click)="SelectedType('BERTH')" id="role_type" name="role_type"> Berth
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2 text-center">
+                                        <button (click)="saveRole()" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+        
+    </div>
+
+  
+   
+
+
+
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->
+

@@ -1,0 +1,101 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-10 offset-md-1">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>                                
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center">Labor Info</p> 
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Name</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{name}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Designation Category</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{designation}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Permanent Address</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{permanent_address}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Present Address</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{present_address}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Expiration Date</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{expiration_date}}</div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>NID</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{nid}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Entry Pass No</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{entry_pass_no}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Phone</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{phone}}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"><label><b>Date of Birth</b></label></div>
+                                            <div class="col-md-1">:</div>
+                                            <div class="col-md-8"> {{date_of_birth}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="http://cpatos.gov.bd/biometricPhoto/{{entry_pass_no}}/{{entry_pass_no}}.png" style="border: 1px solid black;"  class="cpa-logo">
+                                    </div>
+                                </div>                    
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

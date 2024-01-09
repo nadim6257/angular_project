@@ -1,0 +1,296 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <!-- Designation Category Form Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section  class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">Add</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                                <h3 class="card-title">Add New Labor Category</h3>                                
+                            </div> -->
+                            <div class="card-body">
+                                <p class="h4 mb-4" align="center"><b>Assign Gang to Workplace</b></p>
+                                <form [formGroup]="gangAssignForm" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-md 6">
+
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Work Category
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="work_category_id" name="work_category_id"
+                                                            [(ngModel)]="workType" [items]="workCategories"
+                                                            bindLabel="name" bindValue="id" [multiple]="false"
+                                                            [searchable]="true" [closeOnSelect]="true" placeholder=""
+                                                            (change)="onWorkCategoryChange($event.id)" tabindex="1">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Gang
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="gang_id"
+                                                            [(ngModel)]="selectedGang" [items]="filteredGangs" bindLabel="name" bindValue="id"
+                                                            [multiple]="false" [searchable]="true"
+                                                            [closeOnSelect]="true" placeholder="Select Gang"
+                                                            (change)="onGangChange($event.id)" tabindex="1">
+                                                        </ng-select>
+                                                        <!-- <ng-select class="custom form-control" formControlName="gang_id" (change)="onGangChange($event.id)">
+                                                            <ng-option *ngFor="let gang of filteredGangs" [value]="gang.id">
+                                                                {{gang.name}}
+                                                            </ng-option>
+                                                        </ng-select> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Starting Time
+                                                            </button>
+                                                        </div>
+                                                        <input type="date" formControlName="start_time"
+                                                            name="start_time" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Expected End Time
+                                                            </button>
+                                                        </div>
+                                                        <input type="date" formControlName="end_time" name="end_time"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="this.workTypeName === 'Delivery from Yard'">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Yard No
+                                                            </button>
+                                                        </div>
+                                                  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row"
+                                                *ngIf="this.workTypeName === 'Unstuffing' || this.workTypeName === 'Delivery from Shed'">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Shed No
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="shed" name="shed"
+                                                            (change)="onShedChange()">
+                                                            <ng-option value="">Select Yard</ng-option>
+                                                            <ng-option value="1 Shed">Shed 1</ng-option>
+                                                            <ng-option value="2 Shed">Shed 2</ng-option>
+                                                            <ng-option value="3 Shed">Shed 3</ng-option>
+                                                            <ng-option value="4 Shed">Shed 4</ng-option>
+                                                            <ng-option value="5 Shed">Shed 5</ng-option>
+                                                            <ng-option value="6 Shed">Shed 6</ng-option>
+                                                            <ng-option value="7 Shed">Shed 7</ng-option>
+                                                            <ng-option value="8 Shed">Shed 8</ng-option>
+                                                            <ng-option value="9 Shed">Shed 9</ng-option>
+                                                            <ng-option value="10 Shed">Shed 10</ng-option>
+                                                            <ng-option value="11 Shed">Shed 11</ng-option>
+                                                            <ng-option value="12 Shed">Shed 12</ng-option>
+                                                            <ng-option value="13 Shed">Shed 13</ng-option>
+                                                            <ng-option value="14 Shed">Shed 14</ng-option>
+                                                            <ng-option value="CFS/CCT">CFS/CCT</ng-option>
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row"
+                                                *ngIf="this.workTypeName === 'Discharging from Vessel Operation' || this.workTypeName === 'Loading to Vessel Operation' || this.workTypeName === 'Loading and Discharging' || this.workTypeName === 'Delivery from Shed'">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Rotation No
+                                                            </button>
+                                                        </div>
+                                                        <!-- <input #cont (input)="cont.value = cont.value.toUpperCase()"
+                                                            list="rotList" formControlName="rotation" name="rotation"
+                                                            class="form-control" autocomplete="off">
+                                                        <datalist id="rotList">
+                                                            <option *ngFor="let rl of rotList"
+                                                                value={{rl.import_rotation_no}}>
+                                                        </datalist> -->
+
+                                                        <ng-select class="custom form-control" formControlName="rotation"
+                                                            [ngModel]="selectedRotation" [items]="rotList" bindLabel="import_rotation_no" bindValue="import_rotation_no"
+                                                            [multiple]="false" [searchable]="true"
+                                                            [closeOnSelect]="true" placeholder="Select Rotation">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row"
+                                                *ngIf="this.workTypeName === 'Discharging from Vessel Operation' || this.workTypeName === 'Loading to Vessel Operation' || this.workTypeName === 'Loading and Discharging'">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Crane No
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="crane"
+                                                            (change)="onCraneChange($event.id)">
+                                                            <ng-option value="">Select Crane</ng-option>
+                                                            <ng-option value="1">Crane 1</ng-option>
+                                                            <ng-option value="2">Crane 2</ng-option>
+                                                            <ng-option value="3">Crane 3</ng-option>
+                                                            <ng-option value="4">Crane 4</ng-option>
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row"
+                                                *ngIf="this.workTypeName === 'Unstuffing' || this.workTypeName === 'Delivery from Yard'">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Container
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control" formControlName="container"
+                                                            [(ngModel)]="selectedContainer" [items]="containerList" bindLabel="cont_no" bindValue="cont_no"
+                                                            [multiple]="true" [searchable]="true"
+                                                            [closeOnSelect]="true" placeholder="Select Container">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="this.workTypeName === 'Delivery from Shed'">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                BL No
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control"
+                                                            formControlName="bl">
+                                                            <ng-option *ngFor="let bl of blList" [value]="bl.bl_no">
+                                                                {{bl.bl_no}}
+                                                            </ng-option>
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Job Location
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control"
+                                                            formControlName="work_location_id" [items]="workLocations"
+                                                            [(ngModel)]="selectedWorkLocation" bindLabel="name" bindValue="id" [multiple]="false"
+                                                            [searchable]="true" [closeOnSelect]="true" placeholder=""
+                                                            (change)="onWorkLocationChange($event.id)" tabindex="1">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="width: 160px;">
+                                                                Shift
+                                                            </button>
+                                                        </div>
+                                                        <ng-select class="custom form-control"
+                                                            formControlName="shift">
+                                                            <ng-option *ngFor="let sft of shiftList" [value]="sft.id">
+                                                                {{sft.shift_name+' ('+sft.shift_from+' : '+sft.shift_to+')'}}
+                                                            </ng-option>
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 offset-md-2 text-center">
+                                                    <button [disabled]="false" type="submit"
+                                                        class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Designation Category Form Ends -->
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

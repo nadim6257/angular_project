@@ -1,0 +1,187 @@
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+  <div class="col-12 mt-4">
+       
+        <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+
+        <h3 align="center">CHITTAGONG PORT AUTHORITY,CHITTAGONG</h3>
+        <h3 align="center">{{cotainerDischargeTitle}}</h3>
+        <div class="row  mt-4">
+            <div class="col-3">
+                <h5  align="center">Vessel Name : {{vesselName}}</h5>
+            </div>
+            <div class="col-3">
+                <h5 align="center">Voy No : {{voy}}</h5>
+            </div>
+            <div class="col-3">
+                <h5 align="center">Rotation : {{rotation}}</h5>
+            </div>
+            <div class="col-3">
+                <h5 align="center">ETA : {{ata}}</h5>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+        <table class="table table-responsive   table-bordered table-striped  table-hover table-sm  mt-4" id="equipmentListTable"  width="100%" >
+            <thead>
+                <tr>
+                   
+                    <th class="text-center">SlNo</th>
+                    <th class="text-center">Container No.</th>									
+                    <th class="text-center">ISO Type</th>									
+                    <th class="text-center">Type</th>									
+                    <th class="text-center">Rotation</th>									
+                    <th class="text-center">MLO</th>									
+                    <th class="text-center">Status</th>									
+                    <th class="text-center">Weight</th>									
+                    <th class="text-center">POD</th>									
+                    <th class="text-center" >Current Position</th>	
+                    <th class="text-center">Loaded Time</th>								
+                    <th class="text-center">Coming From</th>									
+                    <th class="text-center">Commodity</th>
+                    <th class="text-center">Remarks</th>
+                    <th class="text-center">User Id</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let  result  of resultList | filter: searchText;let i = index;let c = count">
+                    
+                    <td scope="col" align="center">{{i+1}}</td>
+                    <td scope="col" align="center">{{result.id}}</td>
+                    <td scope="col" align="center">{{result.iso}}</td>
+                    <td scope="col" align="center">{{result.type}}</td>
+                    <td scope="col" align="center">{{result.rotation}}</td>
+                    <td scope="col" align="center">{{result.mlo}}</td>
+                    <td scope="col" align="center">{{result.freight_kind}}</td>
+                    <td scope="col" align="center">{{result.weight}}</td>
+                    <td scope="col" align="center">{{result.pod}}</td>
+                    <td scope="col" align="center">{{result.current_position}}</td>
+                    <td scope="col" align="center">{{result.last_update}}</td>
+                    <td scope="col" align="center">{{result.coming_from}}</td>
+                    <td scope="col" align="center">{{result.short_name}}</td>
+                    <td scope="col" align="center"></td>
+                    <td scope="col" align="center">{{result.user_id}}</td>
+
+                   
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+   
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+  <div class="col-12 mt-4">
+        <h3 align="center">Summery Report</h3>
+        <div class="table-responsive">  
+        <table class="table  table-bordered  table-hover table-sm col-12 mt-4 " id="equipmentListTable"  width="100%" >
+            <thead>
+                <tr>
+                    
+                    <th colspan="6" class="text-center"><b>TOTAL ONBOARD</b></th>
+                    <th colspan="6" class="text-center"><b>BALANCE TO LOAD</b></th>									
+                    	
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" align="center"><b>LADEN</b></td>
+                    <td colspan="2" align="center"><b>EMPTY</b></td>
+                    <td colspan="2" align="center"><b>TUES</b></td>
+                    <td colspan="2" align="center"><b>LADEN</b></td>
+                    <td colspan="2" align="center"><b>EMPTY</b></td>
+                    <td colspan="2" align="center"><b>TUES</b></td>
+                   
+                   
+                </tr>
+                <tr>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>LD</b></td>
+                    <td colspan="1" align="center"><b>MT</b></td>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>LD</b></td>
+                    <td colspan="1" align="center"><b>MT</b></td>
+                   
+                </tr>
+                <tr>
+                     
+                    <td colspan="1" align="center">
+                       <span > {{onBoardLD20}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span > {{onBoardLD40}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span>  {{onBoardMT20}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span >  {{onBoardMT40}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span> {{onBoardLDTues}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span>  {{onBoardMTTues}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span>{{balanceLD20}}</span>
+                     </td>
+                     <td colspan="1" align="center">
+                         <span> {{balanceLD40}}</span>
+                     </td>
+                     <td colspan="1" align="center">
+                         <span>{{balanceMT20}}</span>
+                     </td>
+                     <td colspan="1" align="center">
+                        <span> {{balanceMT40}}</span>
+                     </td>
+                     <td colspan="1" align="center">
+                         <span>  {{balanceLDTues}}</span>
+                     </td>
+                     <td colspan="1" align="center">
+                         <span> {{balanceMTTues}}</span>
+                     </td>
+                </tr>
+                <tr>
+                    <td  colspan="12" align="center"><b>Container's</b></td>
+                </tr>
+                <tr>
+                    <td style="margin-bottom: 2rem;white-space:pre-wrap;"  colspan="12" align="center">{{allContainer}}</td>
+                </tr>
+                <!--tr>
+                    <td colspan="12" align="center">
+                        <table>
+                            <tr>
+                                <b><u style="margin-bottom: 2rem;white-space:pre-wrap;">Container's</u></b>
+                            </tr>
+                            <tr>
+                                <b><u style="margin-bottom: 2rem;white-space:pre-wrap;">{{allContainer}}</u></b>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr-->
+
+            </tbody>
+        </table>
+      </div>
+    </div>
+   
+</div>

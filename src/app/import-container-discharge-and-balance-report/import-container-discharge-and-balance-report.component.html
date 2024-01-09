@@ -1,0 +1,226 @@
+<!--app-headertop></app-headertop-->
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+  <div class="col-12 mt-4">
+       
+        <img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px">
+
+        <h3 align="center">Import Container Discharging Report</h3>
+        <div class="row  mt-4" *ngFor="let  vesselResult  of vesselInfoResult">
+            <div class="col-3">
+                <h5  align="center">Vessel Name : {{vesselResult.vsl_name}}</h5>
+            </div>
+            <div class="col-3">
+                <h5 align="center">Voy No : {{voyNumber.voy_No}}</h5>
+            </div>
+            <div class="col-3">
+                <h5 align="center">Rotation : {{rotation}}</h5>
+            </div>
+            <div class="col-3">
+                <h5 align="center">ETA : {{vesselResult.ata}}</h5>
+            </div>
+        </div>
+        
+             <h3 class="text-center mt-4"align="center">IMPORT CONTAINER BALANCE ON BOARD LIST</h3>
+          
+        <table class="table table-bordered table-hover table-sm col-12 mt-4" id="equipmentListTable"  width="100%" >
+            <thead>
+                <tr>
+                    
+                    <th class="text-center">SlNo</th>
+                    <th class="text-center">Container No.</th>									
+                    <th class="text-center">Discharge Time.</th>									
+                    <th class="text-center">Location</th>									
+                    <th class="text-center">Seal No</th>									
+                    <th class="text-center">Type</th>									
+                    <th class="text-center">MLO</th>									
+                    <th class="text-center">Status</th>									
+                    <th class="text-center">Weight</th>									
+                    <th class="text-center">IMCO</th>									
+                    <th class="text-center">Commodity</th>									
+                    <th class="text-center">Remarks</th>		
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let  balanceResult  of balanceResultList | filter: searchText;let i = index;let c = count">
+                    <td scope="col" align="center">{{i+1}}</td>
+                    <td scope="col" align="center">{{balanceResult.id}}</td>
+                    <td scope="col" align="center">{{balanceResult.fcy_time_in}}</td>
+                    <td scope="col" align="center">{{balanceResult.location}}</td>
+                    <td scope="col" align="center">{{balanceResult.sealno}}</td>
+                    <td scope="col" align="center">{{balanceResult.iso}}</td>
+                    <td scope="col" align="center">{{balanceResult.mlo}}</td>
+                    <td scope="col" align="center">{{balanceResult.freight_kind}}</td>
+                    <td scope="col" align="center">{{balanceResult.weight}}</td>
+                    <td scope="col" align="center"></td>
+                    <td scope="col" align="center">{{balanceResult.short_name}}</td>
+                    <td scope="col" align="center"></td>
+
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+</div>
+
+
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+  <div class="col-12 mt-4">
+       
+        <!--img align="center" src="../../assets/img/cpanew.jpg" class="rounded mx-auto d-block" alt="..." width="250px" height="80px"-->
+
+        <!--h3 align="center">Import Container Discharging Report</h3-->
+        <!--div class="row">
+            <div class="col-4">
+                <h5   align="center">From Date : {{fromDate}}</h5>
+            </div>
+            <div class="col-4">
+                <h5 *ngIf="show" align="center">To Date : {{toDate}}</h5>
+            </div>
+            <div class="col-4">
+                <h5 align="center">Shift : {{shift}}</h5>
+            </div>
+        </div-->
+        
+             <h3 align="center">IMPORT CONTAINER DISCHARGED LIST</h3>
+         
+        <table class="table table-bordered table-hover table-sm col-12 mt-4" id="equipmentListTable"  width="100%" >
+            <thead>
+                <tr>
+                    
+                    <th class="text-center">SlNo</th>
+                    <th class="text-center">Container No.</th>									
+                    <th class="text-center">Discharge Time.</th>									
+                    <th class="text-center">Location</th>									
+                    <th class="text-center">Seal No</th>									
+                    <th class="text-center">Type</th>									
+                    <th class="text-center">MLO</th>									
+                    <th class="text-center">Status</th>									
+                    <th class="text-center">Weight</th>									
+                    <th class="text-center">IMCO</th>									
+                    <th class="text-center">Commodity</th>									
+                    <th class="text-center">Remarks</th>		
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let  dischargeContainerResult  of dischargeContainerResultList | filter: searchText;let i = index;let c = count">
+                    <td scope="col" align="center">{{i+1}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.id}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.fcy_time_in}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.location}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.sealno}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.iso}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.mlo}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.freight_kind}}</td>
+                    <td scope="col" align="center">{{dischargeContainerResult.weight}}</td>
+                    <td scope="col" align="center"></td>
+                    <td scope="col" align="center">{{dischargeContainerResult.short_name}}</td>
+                    <td scope="col" align="center"></td>
+
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <!--app-sidebar></app-sidebar-->
+    </div>
+  <div class="col-12 mt-4">
+       
+         
+        <table class="table table-bordered table-hover table-sm col-12 mt-4" id="equipmentListTable"  width="100%" >
+            <thead>
+                <tr>
+                    
+                    <th colspan="6" class="text-center"><b>DISCHARGED</b></th>
+                    <th colspan="6" class="text-center"><b>BALANCE ON BOARD</b></th>									
+                    	
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" align="center"><b>LADEN</b></td>
+                    <td colspan="2" align="center"><b>EMPTY</b></td>
+                    <td colspan="2" align="center"><b>TUES</b></td>
+                    <td colspan="2" align="center"><b>LADEN</b></td>
+                    <td colspan="2" align="center"><b>EMPTY</b></td>
+                    <td class="2" align="center"><b>TUES</b></td>
+                   
+                   
+                </tr>
+                <tr>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>LD</b></td>
+                    <td colspan="1" align="center"><b>MT</b></td>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>20</b></td>
+                    <td colspan="1" align="center"><b>40</b></td>
+                    <td colspan="1" align="center"><b>LD</b></td>
+                    <td colspan="1" align="center"><b>MT</b></td>
+                   
+                </tr>
+                <tr>
+                     <td colspan="1" align="center">
+                       <span *ngIf="dischargeContianerSummaryResult.balance_LD_20 != 0">{{dischargeContianerSummaryResult.balance_LD_20}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="dischargeContianerSummaryResult.balance_LD_40 != 0"> {{dischargeContianerSummaryResult.balance_LD_40}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="dischargeContianerSummaryResult.balance_MT_20 != 0">{{dischargeContianerSummaryResult.balance_MT_20}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                       <span *ngIf="dischargeContianerSummaryResult.balance_MT_40 != 0" > {{dischargeContianerSummaryResult.balance_MT_40}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="dischargeContianerSummaryResult.balance_LD_tues != 0" >  {{dischargeContianerSummaryResult.balance_LD_tues}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="dischargeContianerSummaryResult.balance_MT_tues != 0" > {{dischargeContianerSummaryResult.balance_MT_tues}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                       <span *ngIf="balanceOnBoardWiseSummaryResult.onboard_LD_20 != 0"> {{balanceOnBoardWiseSummaryResult.onboard_LD_20}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="balanceOnBoardWiseSummaryResult.onboard_LD_40 != 0"> {{balanceOnBoardWiseSummaryResult.onboard_LD_40}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="balanceOnBoardWiseSummaryResult.onboard_MT_20 != 0">  {{balanceOnBoardWiseSummaryResult.onboard_MT_20}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="balanceOnBoardWiseSummaryResult.onboard_MT_40 != 0">  {{balanceOnBoardWiseSummaryResult.onboard_MT_40}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="balanceOnBoardWiseSummaryResult.onboard_LD_tues != 0"> {{balanceOnBoardWiseSummaryResult.onboard_LD_tues}}</span>
+                    </td>
+                    <td colspan="1" align="center">
+                        <span *ngIf="balanceOnBoardWiseSummaryResult.onboard_MT_tues != 0">  {{balanceOnBoardWiseSummaryResult.onboard_MT_tues}}</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+   
+</div>
+
+
+
+

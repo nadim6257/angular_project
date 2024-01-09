@@ -1,0 +1,45 @@
+<div class="row">
+    <div style="margin-left: 550px;margin-top: 30px;">
+        <img width="250px" height="80px" src="../../assets/img/cpanew.jpg" class="cpa-logo">
+    </div>
+    <h3 style="margin-left:450px;">DATE WISE PRE ADVISED CONTAINER REPORT</h3>
+    <h3 style="margin-left:580px;">Rotation:{{rotation}}</h3>
+    <div style="margin-top:20px; margin-left:20px;margin-right:20px ;">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td><b>SlNo</b></td>
+                    <td><b>Container No</b></td>
+                    <td><b>SIZE</b></td>
+                    <td><b>Weight</b></td>
+                    <td><b>SEAL NO</b></td>
+                    <td><b>MLO</b></td>
+                    <td><b>TYPE</b></td>
+                    <td><b>COMING FROM</b></td>
+                    <td><b>VESSEL NAME</b></td>
+                    <td><b>ROTATION</b></td>
+                    <td><b>PREADVISED DATE</b></td>
+                    <td><b>STATUS</b></td>
+                    <td><b>PORT</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ContainerDateAndRotatio of containerDateAndRotation;let i=index;">
+                    <td>{{i+1}}</td>
+                    <td>{{ContainerDateAndRotatio.cont_id}}</td>
+                    <td>{{ContainerDateAndRotatio.cont_size}}</td>
+                    <td>{{ContainerDateAndRotatio.goods_and_ctr_wt_kg}}</td>
+                    <td>{{ContainerDateAndRotatio.seal_no}}</td>
+                    <td>{{ContainerDateAndRotatio.cont_mlo}}</td>
+                    <td>{{ContainerDateAndRotatio.isoType}}</td>
+                    <td>{{ContainerDateAndRotatio.offdock}}</td>
+                    <td>{{ContainerDateAndRotatio.vsl_name}}</td>                   
+                    <td>{{ContainerDateAndRotatio.rotation}}</td>
+                    <td>{{ContainerDateAndRotatio.last_update}}</td>                 
+                    <td>{{ContainerDateAndRotatio.cont_status}}</td>
+                    <td>{{ContainerDateAndRotatio.pod}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+
+    <!-- Labor Category List Starts -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <!-- <h1>Labor Category</h1> -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Labor Category</a></li>
+                            <li class="breadcrumb-item active">List</li>
+                        </ol> -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">                        
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Assigned Gang List</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-9">
+                                       
+                                    </div>
+                                    <div class="col-3">                                        
+                                        <div class="card-header">
+                                            <div class="card-tools">
+                                                <div class="input-group input-group-sm float-right" style="width: 200px;">
+                                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search"
+                                                        (keyup)="onSearchInput()" [(ngModel)]="filterTerm" >
+                                
+                                                    <div class="input-group-append">
+                                                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container table-responsive">
+                                    <table class="table table-responsive table-bordered table-condensed table-striped table-hover table-fixed table-sm">  <!--table-head-fixed text-nowrap-->
+                                        <thead> <!--class="thead-dark"-->
+                                            <tr class="table-primary"> <!--class="table-primary"-->
+                                                <th class="text-center">#SL</th>
+                                                <th class="text-center">Gang Name</th>
+                                                <th *ngIf="this.userRoleId == 1 || this.userRoleId == 2" class="text-center">
+                                                    Berth Operator
+                                                </th>
+                                                <th class="text-center">Work Location</th>
+                                                <th class="text-center">Work Category</th>
+                                                <th class="text-center">Shift</th>
+                                                <th class="text-center">Starting Time</th>
+                                                <th class="text-center">Expected Ending Time</th>
+                                                <th class="text-center">Actual Ending Time</th>
+                                                <th class="text-center">Action</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="
+                                                    let assignedGang of assignedGangs  
+                                                    | filter: filterTerm 
+                                                    | paginate
+                                                        : {
+                                                            itemsPerPage: tableSize,
+                                                            currentPage: page,
+                                                            totalItems: count
+                                                        };
+                                                    let i = index                                     
+                                                ">
+                                                <th scope="row" class="text-center"> {{ i+1 + (tableSize * (page-1)) }} </th>
+                                                <td class="text-center"> {{assignedGang.gang_name}} </td>
+                                                <td *ngIf="this.userRoleId == 1 || this.userRoleId == 2" class="text-center"> 
+                                                    {{assignedGang.berth_operator_name}} 
+                                                </td>
+                                                <td class="text-center"> {{assignedGang.work_location_name}} </td>
+                                                <td class="text-center"> {{assignedGang.work_category_name}} </td>
+                                                <td class="text-center"> {{assignedGang.shift_name}} </td>
+                                                <td class="text-center"> {{assignedGang.start_time}} </td>
+                                                <td class="text-center"> {{assignedGang.end_time}} </td>
+                                                <td class="text-center"> {{assignedGang.actual_end_time}} </td>
+                                                <td class="text-center">
+                                                    <span *ngIf="assignedGang.actual_end_time==null">
+                                                        <button type="button" class="btn btn-sm btn-success" (click)="EndTime(assignedGang.id)">END TIME</button>
+                                                    </span>
+
+                                                    <span *ngIf="assignedGang.actual_end_time!=null">
+                                                        <button type="button" class="btn btn-sm btn-primary" disabled>END TIME</button>
+                                                    </span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span *ngIf="assignedGang.actual_end_time==null">
+                                                        <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/gang/assigned/edit/', assignedGang.id]">Edit</button>
+                                                    </span>
+
+                                                    <span *ngIf="assignedGang.actual_end_time!=null">
+                                                        <button type="button" class="btn btn-sm btn-primary" disabled>Edit</button>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-center">
+                                        <pagination-controls
+                                          previousLabel="Prev"
+                                          nextLabel="Next"
+                                          (pageChange)="onTableDataChange($event)"
+                                        >
+                                        </pagination-controls>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Labor Category List Ends -->
+
+
+    <app-footer></app-footer>
+</div>
+<!-- ./wrapper -->

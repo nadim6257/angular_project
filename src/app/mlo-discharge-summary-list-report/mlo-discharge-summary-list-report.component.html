@@ -1,0 +1,526 @@
+<div class="row">
+   
+    <table class="table-striped table-hover table-bordered " align="center">
+        <tr align="center">
+            <!--td style="font-size:22px;" ><b><font size="4"><b>CHITTAGONG PORT AUTHORITY, CHITTAGONG</b></td-->
+            <td align="center"><img width="280px" height="90px" src="../../assets/img/cpanew.jpg"></td>
+        </tr>
+        <tr><td style="font-size:22px;" ><b>MLO DISCHARGE SUMMARY</b></td></tr>
+         <tr>
+        <tr><td height="37"><p class="style1">AGENT:  {{organizationName}}</p>
+                <p class="style1">ORGANIZATION NAME:  {{organizationName}}</p>              
+                <p class="style1">MLO: {{mloName}}</p></td>
+       </tr>
+             <tr>
+              <td height="22" colspan="0">Vessel: {{vesselName}}</td>
+              <td>&nbsp;</td>
+            </tr>
+             <tr>
+            
+             <tr>
+              <td>Voyage No: {{voyNo}}</td>
+              <td>Cust Rot No: {{importRotation}} </td>
+              </tr>
+              <tr>
+              <td>ETA:{{etaDate}}</td>
+              <td>ETD: {{etdDate}}</td>
+            </tr>
+    </table>  
+   
+</div>
+<div class="row">
+    <table class='table table-bordered table-responsive table-hover table-striped mb-none table-sm text-center'>
+	
+         
+              <tr>
+                <td colspan="2" width="20%"><strong>Container</strong></td>
+                <td  colspan="1" width="20%"><strong>CL</strong></td>
+                <td colspan="3" width="30%"><div align="center"><strong colspan="4">NOS. of cont.</strong></div></td>
+                <td colspan="4" width="30%"><div align="center"><strong>Gross weight </strong></div></td>
+              </tr>
+              <tr>
+                <td height="22">Size</td>
+                <td  colspan="1">Type</td>
+              <td  colspan="1" ><strong>CL</strong></td>
+                <td >Full</td>
+                <td >MT</td>
+                <td >Total</td>
+                <td >Full</td>
+                <td >NET</td>
+                <td >MT</td>
+                <td >Total</td>
+              </tr>
+              
+                
+                    <tr>
+                      <td width="7%" height="100" rowspan="8">20</td>
+                      <td width="11%" height="100" rowspan="5">Normal</td>
+                      <td width="14%" height="19">FCL</td>
+					  <td width="14%" height="19">{{row.number}}</td>
+                      <td width="14%" height="19"></td>
+                      <td width="18%" height="19">{{row.number}}</td>
+                      <td width="13%" height="19">{{row.net_weight}}</td>
+                      <td width="15%" height="19">{{row.gross_weight}}</td>
+                      <td width="14%" height="19"></td>
+                      <td width="15%" height="19">{{row.gross_weight}}</td>
+					</tr>
+					<tr>
+                            <td width="14%" height="19">LCL</td>
+                            <td  width="14%" height="19">
+                                <span *ngIf="row3.number!=0">{{row3.number}}</span>
+                            </td>
+                            <td width="14%" height="19"></td>
+                            <td width="18%" height="19">
+                                <span *ngIf="row3.number!=0"> {{row3.number}}</span>
+                            </td>
+                            <td width="13%" height="19">
+                                <span *ngIf="row3.net_weight!=0"> {{row3.net_weight}}</span>
+                                    </td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row3.gross_weight!=0"> {{row3.gross_weight}}</span> 
+                            </td>
+                            <td width="14%" height="19"></td>
+                            <td width="15%" height="19">
+                            <span *ngIf="row3.gross_weight!=0"> {{row3.gross_weight}}</span> 
+                            </td>
+					</tr>
+					<tr>
+                            <td width="14%" height="19">EMPTY</td>
+                            <td width="14%" height="19"></td>
+                            <td width="14%" height="19">
+                                <span *ngIf="row5.number!=0"> {{row5.number}}</span> 
+                            </td>
+                            <td width="18%" height="19">
+                                <span *ngIf="row5.number!=0"> {{row5.number}}</span> 
+                                </td>
+                            <td width="14%" height="19"></td>
+                            <td width="14%" height="19"></td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row5.net_weight!=0"> {{row5.net_weight}}</span>
+                                </td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row5.net_weight!=0"> {{row5.net_weight}}</span>
+                                </td>
+				     	   
+                          
+                    </tr>
+					<tr>
+                            <td width="14%" height="19">ICD</td>
+                            <td width="14%" height="19">
+                                <span *ngIf="row7.number!=0"> {{row7.number}}</span> 
+                            </td>
+                            <td width="14%" height="19"></td>
+                            <td width="18%" height="19">
+                                <span *ngIf="row7.number!=0"> {{row7.number}}</span> 
+                            </td>
+                            <td width="13%" height="19">
+                                <span *ngIf="row7.net_weight!=0"> {{row7.net_weight}}</span> 
+                            </td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row7.gross_weight!=0"> {{row7.gross_weight}}</span>
+                                </td>
+                            <td width="14%" height="19"></td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row7.gross_weight!=0"> {{row7.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+                            <td width="14%" height="19">TRANS</td>
+                            <td width="14%" height="19">
+                                <span *ngIf="row9.number!=0"> {{row9.number}}</span> 
+                            </td>
+                            <td width="14%" height="19"></td>
+                            <td width="18%" height="19">
+                                <span *ngIf="row9.number!=0"> {{row9.number}}</span> 
+                            </td>
+                            <td width="13%" height="19">
+                                <span *ngIf="row9.net_weight!=0"> {{row9.net_weight}}</span>
+                            </td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row9.gross_weight!=0"> {{row9.gross_weight}}</span>
+                                </td>
+                            <td width="14%" height="19"></td>
+                            <td width="15%" height="19">
+                                <span *ngIf="row9.gross_weight!=0"> {{row9.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">REFFER</td>
+					<td width="14%" height="19">REFR</td>
+					<td width="14%" height="19">
+                        <span *ngIf="row110.number!=0"> {{row110.number}}</span>
+                    </td>
+                          <td width="14%" height="19">
+                             
+                          </td>
+                          <td width="18%" height="19">
+                            {{row11.number+row110.number}}
+                         </td>
+                          <td width="13%" height="19">
+                              {{row11.net_weight+row110.net_weight}}
+                            </td>
+                          <td width="15%" height="19">
+                              {{row11.gross_weight+row110.gross_weight}}
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                               {{row11.gross_weight+row110.gross_weight}}
+                          </td>
+					</tr>
+					<tr>
+						<td width="14%" height="19">IMDG</td>
+					<td width="14%" height="19">IMDG</td>
+					<td width="14%" height="19">
+                        <span *ngIf="row13.number!=0"> {{row13.number}}</span>
+                      </td>
+                          <td width="14%" height="19"></td>
+                          <td width="18%" height="19">
+                            <span *ngIf="row13.number!=0"> {{row13.number}}</span>
+                            </td>
+                          <td width="13%" height="19">
+                              {{row13.net_weight}}
+                            </td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row13.gross_weight!=0"> {{row13.gross_weight}}</span> 
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                            <span *ngIf="row13.gross_weight!=0"> {{row13.gross_weight}}</span> 
+                            </td>
+					</tr>
+					<tr>
+						<td width="14%" height="19">Subtotal</td>
+					<td width="14%" height="19">&nbsp;</td>
+					 <td width="14%" height="19">{{total1}}</td>
+                          <td width="14%" height="19"></td>
+                          <td width="14%" height="19">{{total4}}</td>
+                          <td width="14%" height="19">{{total7}}</td>
+                          <td width="14%" height="19">{{total10}}</td>
+                          <td width="14%" height="19"></td>
+                        <td width="14%" height="19">{{total13}}</td>
+					</tr>
+					 <tr>
+                      <td width="7%" height="100" rowspan="8">40</td>
+                      <td width="11%" height="100" rowspan="5">Normal</td>
+                      <td width="14%" height="19">FCL</td>
+					  <td width="14%" height="19">
+                        <span *ngIf="row2.number!=0"> {{row2.number}}</span>
+                        </td>
+                          <td width="14%" height="19"></td>
+                          <td width="18%" height="19">
+                            <span *ngIf="row2.number!=0"> {{row2.number}}</span>
+                            </td>
+                          <td width="13%" height="19">
+                            <span *ngIf="row2.net_weight!=0"> {{row2.net_weight}}</span>
+                            </td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row2.gross_weight!=0"> {{row2.gross_weight}}</span>
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                            <span *ngIf="row2.gross_weight!=0"> {{row2.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					 <td width="14%" height="19">LCL</td>
+					  <td width="14%" height="19">
+                        <span *ngIf="row4.number!=0"> {{row4.number}}</span>
+                        </td>
+                          <td width="14%" height="19"></td>
+                          <td width="18%" height="19">
+                            <span *ngIf="row4.number!=0"> {{row4.number}}</span>
+                            </td>
+                          <td width="13%" height="19">
+                            <span *ngIf="row4.net_weight!=0"> {{row4.net_weight}}</span>  
+                            </td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row4.gross_weight!=0"> {{row4.gross_weight}}</span> 
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                            <span *ngIf="row4.gross_weight!=0"> {{row4.gross_weight}}</span> 
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">EMPTY</td>
+					
+					
+						   <td width="14%" height="19"></td>
+                          <td width="14%" height="19">
+                            <span *ngIf="row6.number!=0"> {{row6.number}}</span>
+                            </td>
+                         
+                          <td width="18%" height="19">
+                            <span *ngIf="row6.number!=0"> {{row6.number}}</span>
+                            </td>
+                          <td width="14%" height="19"></td>
+						    <td width="14%" height="19"></td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row6.net_weight!=0"> {{row6.net_weight}}</span>
+                            </td>
+                       
+                           <td width="15%" height="19">
+                            <span *ngIf="row6.net_weight!=0"> {{row6.net_weight}}</span>
+                            </td>
+                          
+                        </tr>
+					<tr>
+					<td width="14%" height="19">ICD</td>
+					       <td width="14%" height="19">
+                            <span *ngIf="row8.number!=0"> {{row8.number}}</span>
+                            </td>
+                          <td width="14%" height="19"></td>
+                          <td width="18%" height="19">
+                            <span *ngIf="row8.number!=0"> {{row8.number}}</span>
+                            </td>
+                          <td width="13%" height="19">
+                            <span *ngIf="row8.net_weight!=0"> {{row8.net_weight}}</span> 
+                            </td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row8.gross_weight!=0"> {{row8.gross_weight}}</span>  
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                            <span *ngIf="row8.gross_weight!=0"> {{row8.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">TRANS</td>
+					   <td width="14%" height="19">
+                        <span *ngIf="row10.number!=0"> {{row10.number}}</span> 
+                        </td>
+                          <td width="14%" height="19"></td>
+                          <td width="18%" height="19">
+                            <span *ngIf="row10.number!=0"> {{row10.number}}</span>
+                            </td>
+                          <td width="13%" height="19">
+                            <span *ngIf="row10.net_weight!=0"> {{row10.net_weight}}</span>
+                            </td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row10.gross_weight!=0"> {{row10.gross_weight}}</span>
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                            <span *ngIf="row10.gross_weight!=0"> {{row10.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">REFFER</td>
+					<td width="14%" height="19">REFR</td>
+					<td width="14%" height="19">
+                        <span *ngIf="row120.number!=0"> {{row120.number}}</span> 
+                    </td>
+                          <td width="14%" height="19">
+                            <span *ngIf="row12.number!=0"> {{row12.number}}</span>
+                            </td>
+                          <td width="18%" height="19">{{row12.number+row120.number}}</td>
+                          <td width="13%" height="19">{{row12.net_weight+row120.net_weight}}</td>
+                          <td width="15%" height="19">{{row12.gross_weight+row120.gross_weight}}</td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">{{row12.gross_weight+row120.gross_weight}}</td>
+					</tr>
+					<tr>
+						<td width="14%" height="19">IMDG</td>
+					<td width="14%" height="19">IMDG</td>
+					 <td width="14%" height="19">
+                        <span *ngIf="row14.number!=0"> {{row14.number}}</span>   
+                        </td>
+                          <td width="14%" height="19">
+                             </td>
+                          <td width="18%" height="19">
+                            <span *ngIf="row14.number!=0"> {{row14.number}}</span> 
+                          <td width="13%" height="19">
+                            <span *ngIf="row14.net_weight!=0"> {{row14.net_weight}}</span>   
+                         </td>
+                          <td width="15%" height="19">
+                            <span *ngIf="row14.gross_weight!=0"> {{row14.gross_weight}}</span>
+                            </td>
+                         <td width="14%" height="19"></td>
+                           <td width="15%" height="19">
+                            <span *ngIf="row14.gross_weight!=0"> {{row14.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+						<td width="14%" height="19">Subtotal</td>
+					<td width="14%" height="19">&nbsp;</td>
+					 <td width="14%" height="19">{{total2}}</td>
+                         <td width="14%"></td>
+                           <td width="14%">{{total5}}</td>
+                          <td width="14%">{{total8}}</td>
+							<td width="14%">{{total11}}</td>
+                       <td width="14%"></td>
+                        <td width="14%">{{total14}}</td>
+					</tr>
+					 <tr>
+                      <td width="7%" height="100" rowspan="8">45</td>
+                      <td width="11%" height="100" rowspan="5">Normal</td>
+                      <td width="14%" height="19">FCL</td>
+					 <td width="14%" height="19">
+                        <span *ngIf="row21.number!=0"> {{row21.number}}</span> 
+                     </td>
+                          <td width="14%">
+
+                          </td>
+                          <td width="18%">
+                            <span *ngIf="row21.number!=0"> {{row21.number}}</span> 
+                            </td>
+                          <td width="13%">
+                            <span *ngIf="row21.net_weight!=0"> {{row21.net_weight}}</span> 
+                            </td>
+                          <td width="15%">
+                            <span *ngIf="row21.gross_weight!=0"> {{row21.gross_weight}}</span>  
+                            </td>
+                         <td width="14%"></td>
+                           <td width="15%">
+                            <span *ngIf="row21.gross_weight!=0"> {{row21.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					 <td width="14%" height="19">LCL</td>
+					   <td width="14%" height="19">
+                        <span *ngIf="row22.number!=0"> {{row22.number}}</span> 
+                        </td>
+                          <td width="14%"></td>
+                          <td width="18%">
+                            <span *ngIf="row22.number!=0"> {{row22.number}}</span> 
+                            </td>
+                          <td width="13%">
+                            <span *ngIf="row22.net_weight!=0"> {{row22.net_weight}}</span>    
+                            </td>
+                          <td width="15%">
+                            <span *ngIf="row22.gross_weight!=0"> {{row22.gross_weight}}</span>  
+                            </td>
+                         <td width="14%"></td>
+                           <td width="15%">
+                            <span *ngIf="row22.gross_weight!=0"> {{row22.gross_weight}}</span> 
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">EMPTY</td>
+					
+					
+						   <td width="14%" height="19"></td>
+                          <td width="14%">
+                            <span *ngIf="row23.number!=0"> {{row23.number}}</span> 
+                            </td>
+                 
+                          <td width="18%">
+                            <span *ngIf="row23.number!=0"> {{row23.number}}</span> 
+                            </td>
+                          <td width="14%"></td>
+						  <td width="14%"></td>
+                          <td width="15%">
+                            <span *ngIf="row23.net_weight!=0"> {{row23.net_weight}}</span> 
+                            </td>
+                    
+                           <td width="15%">
+                            <span *ngIf="row23.net_weight!=0"> {{row23.net_weight}}</span> 
+                            </td>
+                          
+                        </tr>
+					<tr>
+					<td width="14%" height="19">ICD</td>
+					        <td width="14%" height="19">
+                                <span *ngIf="row24.number!=0"> {{row24.number}}</span>
+                            </td>
+                          <td width="14%"></td>
+                          <td width="18%">
+                            <span *ngIf="row24.number!=0"> {{row24.number}}</span>
+                            </td>
+                          <td width="13%">
+                            <span *ngIf="row24.net_weight!=0"> {{row24.net_weight}}</span>
+                            </td>
+                          <td width="15%">
+                            <span *ngIf="row24.gross_weight!=0"> {{row24.gross_weight}}</span>
+                            </td>
+                         <td width="14%"></td>
+                           <td width="15%">
+                            <span *ngIf="row24.gross_weight!=0"> {{row24.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">TRANS</td>
+					    <td width="14%" height="19">
+                            <span *ngIf="row25.number!=0"> {{row25.number}}</span>
+                        </td>
+                          <td width="14%"></td>
+                          <td width="18%">
+                            <span *ngIf="row25.number!=0"> {{row25.number}}</span>
+                            </td>
+                          <td width="13%">
+                            <span *ngIf="row25.net_weight!=0"> {{row25.net_weight}}</span>
+                            </td>
+                          <td width="15%">
+                            <span *ngIf="row25.gross_weight!=0"> {{row25.gross_weight}}</span> 
+                            </td>
+                         <td width="14%"></td>
+                           <td width="15%">
+                            <span *ngIf="row25.gross_weight!=0"> {{row25.gross_weight}}</span>
+                            </td>
+					</tr>
+					<tr>
+					<td width="14%" height="19">REFFER</td>
+					<td width="14%" height="19">REFR</td>
+					<td width="14%"height="19">
+                        <span *ngIf="row26.number!=0"> {{row26.number}}</span>
+                    </td>
+                          <td width="14%">
+                            <span *ngIf="row260.number!=0"> {{row260.number}}</span>
+                            </td>
+                          <td width="18%">{{row26.number+row260.number}}</td>
+                          <td width="13%">{{row26.net_weight+row260.net_weight}}</td>
+                          <td width="15%">{{row26.gross_weight+row260.gross_weight}}</td>
+                         <td width="14%"></td>
+                           <td width="15%">{{row26.gross_weight+row260.gross_weight}}</td>
+					</tr>
+					<tr>
+						<td width="14%" height="19">IMDG</td>
+					<td width="14%" height="19">IMDG</td>
+					 <td width="14%" height="19">
+                        <span *ngIf="row27.number!=0"> {{row27.number}}</span>
+                        </td>
+                          <td width="14%"></td>
+                          <td width="18%">
+                            <span *ngIf="row27.number!=0"> {{row27.number}}</span>
+                            </td>
+                          <td width="13%">
+                            <span *ngIf="row27.net_weight!=0"> {{row27.net_weight}}</span>
+                            </td>
+                          <td width="15%">
+                            <span *ngIf="row27.gross_weight!=0"> {{row27.gross_weight}}</span>
+                            </td>
+                         <td width="14%"></td>
+                           <td width="15%">
+                            <span *ngIf="row27.gross_weight!=0"> {{row27.gross_weight}}</span>
+                           </td>
+					</tr>
+					<tr>
+						<td width="14%" height="19">Subtotal</td>
+					   <td width="14%"></td>
+                     
+                            <td width="14%" height="19">{{total3}}</td>
+                         <td width="14%"></td>
+                           <td width="14%">{{total6}}</td>
+                          <td width="14%">{{total9}}</td>
+                  <td width="14%">{{total12}}</td>
+                       <td width="14%"></td>
+                       <td width="14%">{{total15}}</td>
+					</tr>
+					<tr>
+					<td>Total</td><td>&nbsp;</td><td>&nbsp;</td>
+                         <td width="10%">{{total1+total2+total3}}</td>
+                <td>&nbsp;</td>
+                  <td width="9%">{{total2+total4+total6}}</td>
+                  <td width="9%">{{total7+total8+total9}}</td>
+                  <td width="9%">{{total10+total11+total12}}</td>
+                  <td width="7%">&nbsp;</td>
+				  <td width="9%">{{total13+total14+total15}}</td>
+                  
+                       
+					</tr>
+					<tr>
+					<td>Others Cargo</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+					</tr>
+					
+        </table>
+</div>    
